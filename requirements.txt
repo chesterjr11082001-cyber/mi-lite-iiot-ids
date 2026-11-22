@@ -1,0 +1,16 @@
+# Versions recorded in the Colab sessions used for the article (Python 3.13)
+numpy==2.4.6
+pandas==2.2.3
+scipy==1.16.3
+scikit-learn==1.6.1
+imbalanced-learn==0.14.2
+xgboost==3.4.1
+tensorflow==2.21.0
+keras==3.13.2
+onnx==1.23.2
+onnxruntime==1.32.0
+skl2onnx==1.20.0
+onnxmltools==1.16.0
+tf2onnx==1.17.0
+psutil
+matplotlib

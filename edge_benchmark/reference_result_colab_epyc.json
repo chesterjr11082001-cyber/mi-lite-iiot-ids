@@ -1,0 +1,44 @@
+{
+  "maquina": "x86_64",
+  "procesador": "x86_64",
+  "sistema": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "python": "3.13.18",
+  "onnxruntime": "1.32.0",
+  "hilos": 1,
+  "n": 10000,
+  "resultados": {
+    "xgb_u3": {
+      "mediana_us": 27.229,
+      "p95_us": 36.05199999999997,
+      "p99_us": 47.05070000000001,
+      "media_us": 28.3145397,
+      "paquetes_por_s": 35317.54394015453,
+      "memoria_modelo_mb": 16.3828125,
+      "rss_mb": 67.62109375,
+      "acuerdo_con_esperado": 1.0,
+      "tamano_kb": 445.1953125
+    },
+    "rf_u3": {
+      "mediana_us": 13.43,
+      "p95_us": 19.91204999999997,
+      "p99_us": 27.42040000000001,
+      "media_us": 14.3407706,
+      "paquetes_por_s": 69731.25976926232,
+      "memoria_modelo_mb": 34.62109375,
+      "rss_mb": 102.5078125,
+      "acuerdo_con_esperado": 1.0,
+      "tamano_kb": 5287.3525390625
+    },
+    "tcn_u": {
+      "mediana_us": 47.98,
+      "p95_us": 64.16905,
+      "p99_us": 87.90131000000004,
+      "media_us": 50.779346999999994,
+      "paquetes_por_s": 19693.04567859055,
+      "memoria_modelo_mb": 0.25,
+      "rss_mb": 90.76953125,
+      "acuerdo_con_esperado": 1.0,
+      "tamano_kb": 28.9306640625
+    }
+  }
+}

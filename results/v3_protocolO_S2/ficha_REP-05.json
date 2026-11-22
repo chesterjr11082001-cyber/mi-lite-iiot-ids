@@ -1,0 +1,482 @@
+{
+  "tabla_14_2": {
+    "codigo_corrida": "REP-05",
+    "repeticion": 5,
+    "semilla": 1005,
+    "fecha_hora": "18/11/2026 19:40",
+    "evaluadores": "Leonardo Leoncio Villanueva Fonseca; Ricardo Franco Baldoceda Rios",
+    "archivo_datos": "DNN-EdgeIIoT-dataset.csv",
+    "procesador": "AMD EPYC 7B12",
+    "nucleos_logicos": 8,
+    "ram_total_gb": 50.99,
+    "medicion": "CPU, 1 hilo, lotes de 1024, un proceso por modelo",
+    "python": "3.13.18",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.6.1",
+    "imbalanced_learn": "0.14.2",
+    "xgboost": "3.4.1",
+    "tensorflow": "2.21.0",
+    "keras": "3.13.2",
+    "scipy": "1.16.3",
+    "onnx": "1.23.2",
+    "onnxruntime": "1.32.0",
+    "skl2onnx": "1.20.0",
+    "onnxmltools": "1.16.0",
+    "tf2onnx": "1.17.0",
+    "acelerador_entrenamiento_tcn": "Tesla T4",
+    "modo_prueba": false,
+    "version": "v3 (S2: MI-LiteRF con T = sin balanceo elegido por CV)"
+  },
+  "preprocesamiento": {
+    "registros_brutos": 2219201,
+    "tras_faltantes": 2219201,
+    "registros_depurados": 1909671,
+    "duplicados_eliminados": 309530,
+    "filas_no_finitas": 0,
+    "atributos_tras_retiro": 46,
+    "dimensiones_tras_codificacion": 95,
+    "clases": [
+      "Backdoor",
+      "DDoS_HTTP",
+      "DDoS_ICMP",
+      "DDoS_TCP",
+      "DDoS_UDP",
+      "Fingerprinting",
+      "MITM",
+      "Normal",
+      "Password",
+      "Port_Scanning",
+      "Ransomware",
+      "SQL_injection",
+      "Uploading",
+      "Vulnerability_scanner",
+      "XSS"
+    ],
+    "esperado_gao": {
+      "registros_depurados": 1909671,
+      "dimensiones": 97
+    }
+  },
+  "tabla_14_3": [
+    {
+      "Indicador (unidad)": "VARIABLE INDEPENDIENTE",
+      "Referencia (Gao et al., 2026)": null,
+      "O1 TCN": null,
+      "O2 RF": null,
+      "O2 XGBoost": null,
+      "Δ (RF − TCN)": null,
+      "Δ% (RF vs. TCN)": null
+    },
+    {
+      "Indicador (unidad)": "Pico de memoria RAM (MB)",
+      "Referencia (Gao et al., 2026)": "39,48 (d)",
+      "O1 TCN": 122.59375,
+      "O2 RF": 4.80078125,
+      "O2 XGBoost": 5.375,
+      "Δ (RF − TCN)": -117.79296875,
+      "Δ% (RF vs. TCN)": -96.08399184297731
+    },
+    {
+      "Indicador (unidad)": "Tamaño del modelo serializado (KB)",
+      "Referencia (Gao et al., 2026)": "16,25 (a)",
+      "O1 TCN": 166.44921875,
+      "O2 RF": 5358.7978515625,
+      "O2 XGBoost": 781.1611328125,
+      "Δ (RF − TCN)": 5192.3486328125,
+      "Δ% (RF vs. TCN)": 3119.4791251085403
+    },
+    {
+      "Indicador (unidad)": "Número de atributos (n.º)",
+      "Referencia (Gao et al., 2026)": "18",
+      "O1 TCN": 18,
+      "O2 RF": 25,
+      "O2 XGBoost": 25,
+      "Δ (RF − TCN)": 7,
+      "Δ% (RF vs. TCN)": 38.88888888888889
+    },
+    {
+      "Indicador (unidad)": "VARIABLE DEPENDIENTE",
+      "Referencia (Gao et al., 2026)": null,
+      "O1 TCN": null,
+      "O2 RF": null,
+      "O2 XGBoost": null,
+      "Δ (RF − TCN)": null,
+      "Δ% (RF vs. TCN)": null
+    },
+    {
+      "Indicador (unidad)": "Puntaje F1 macro (%)",
+      "Referencia (Gao et al., 2026)": "≈ 68,0 (b)",
+      "O1 TCN": 68.80856084788428,
+      "O2 RF": 93.34328591009759,
+      "O2 XGBoost": 89.98627000106222,
+      "Δ (RF − TCN)": 24.53472506221331,
+      "Δ% (RF vs. TCN)": 35.65650081892056
+    },
+    {
+      "Indicador (unidad)": "Latencia de inferencia (ms/muestra)",
+      "Referencia (Gao et al., 2026)": "0,85 (d)",
+      "O1 TCN": 0.001534359504767521,
+      "O2 RF": 0.002831033246523859,
+      "O2 XGBoost": 0.00657648907317545,
+      "Δ (RF − TCN)": 0.0012966737417563381,
+      "Δ% (RF vs. TCN)": 84.50912173629114
+    },
+    {
+      "Indicador (unidad)": "Retardo de detección (ms; mediana)",
+      "Referencia (Gao et al., 2026)": "No reportado",
+      "O1 TCN": "no calculable",
+      "O2 RF": "no calculable",
+      "O2 XGBoost": "no calculable",
+      "Δ (RF − TCN)": null,
+      "Δ% (RF vs. TCN)": null
+    },
+    {
+      "Indicador (unidad)": "Episodios de ataque no detectados (n.º)",
+      "Referencia (Gao et al., 2026)": "No reportado",
+      "O1 TCN": "no calculable",
+      "O2 RF": "no calculable",
+      "O2 XGBoost": "no calculable",
+      "Δ (RF − TCN)": null,
+      "Δ% (RF vs. TCN)": null
+    },
+    {
+      "Indicador (unidad)": "Proporción de falsas alarmas, TFP (%)",
+      "Referencia (Gao et al., 2026)": "No reportada (c)",
+      "O1 TCN": 0.0,
+      "O2 RF": 0.0,
+      "O2 XGBoost": 0.0,
+      "Δ (RF − TCN)": null,
+      "Δ% (RF vs. TCN)": null
+    }
+  ],
+  "reduccion_ec_14_3": {
+    "memoria_R_%": 96.08399184297731,
+    "tamano_R_%": -3119.4791251085403,
+    "atributos_R_%": 73.68421052631578,
+    "total_atributos_depurados": 95
+  },
+  "tabla_14_4": [
+    {
+      "Clase": "Backdoor",
+      "Soporte de prueba (Gao)": 7193,
+      "F1 de referencia (%)": 96.0,
+      "Flujos de entrenamiento": 16818,
+      "Flujos de prueba": 7208,
+      "F1 O1 TCN (%)": 96.37745668698213,
+      "F1 O2 RF (%)": 96.74206266860345,
+      "F1 O2 XGBoost (%)": 96.19834710743802
+    },
+    {
+      "Clase": "DDoS_HTTP",
+      "Soporte de prueba (Gao)": 14540,
+      "F1 de referencia (%)": 82.0,
+      "Flujos de entrenamiento": 33981,
+      "Flujos de prueba": 14563,
+      "F1 O1 TCN (%)": 81.71711989054215,
+      "F1 O2 RF (%)": 94.95052882975094,
+      "F1 O2 XGBoost (%)": 92.49594981214022
+    },
+    {
+      "Clase": "DDoS_ICMP",
+      "Soporte de prueba (Gao)": 20217,
+      "F1 de referencia (%)": 99.0,
+      "Flujos de entrenamiento": 47557,
+      "Flujos de prueba": 20382,
+      "F1 O1 TCN (%)": 99.78400667615728,
+      "F1 O2 RF (%)": 99.97547216090263,
+      "F1 O2 XGBoost (%)": 99.8181996855346
+    },
+    {
+      "Clase": "DDoS_TCP",
+      "Soporte de prueba (Gao)": 15035,
+      "F1 de referencia (%)": 83.0,
+      "Flujos de entrenamiento": 35044,
+      "Flujos de prueba": 15018,
+      "F1 O1 TCN (%)": 82.74454648244671,
+      "F1 O2 RF (%)": 99.9966705510238,
+      "F1 O2 XGBoost (%)": 99.99001231814097
+    },
+    {
+      "Clase": "DDoS_UDP",
+      "Soporte de prueba (Gao)": 36523,
+      "F1 de referencia (%)": 99.0,
+      "Flujos de entrenamiento": 85097,
+      "Flujos de prueba": 36470,
+      "F1 O1 TCN (%)": 99.98492138558758,
+      "F1 O2 RF (%)": 99.99725794510405,
+      "F1 O2 XGBoost (%)": 99.96571350202291
+    },
+    {
+      "Clase": "Fingerprinting",
+      "Soporte de prueba (Gao)": 250,
+      "F1 de referencia (%)": 52.0,
+      "Flujos de entrenamiento": 597,
+      "Flujos de prueba": 256,
+      "F1 O1 TCN (%)": 62.99559471365639,
+      "F1 O2 RF (%)": 81.10599078341014,
+      "F1 O2 XGBoost (%)": 43.18407960199005
+    },
+    {
+      "Clase": "MITM",
+      "Soporte de prueba (Gao)": 101,
+      "F1 de referencia (%)": 100.0,
+      "Flujos de entrenamiento": 251,
+      "Flujos de prueba": 107,
+      "F1 O1 TCN (%)": 100.0,
+      "F1 O2 RF (%)": 100.0,
+      "F1 O2 XGBoost (%)": 98.1651376146789
+    },
+    {
+      "Clase": "Normal",
+      "Soporte de prueba (Gao)": 409327,
+      "F1 de referencia (%)": 100.0,
+      "Flujos de entrenamiento": 954798,
+      "Flujos de prueba": 409200,
+      "F1 O1 TCN (%)": 100.0,
+      "F1 O2 RF (%)": 100.0,
+      "F1 O2 XGBoost (%)": 100.0
+    },
+    {
+      "Clase": "Password",
+      "Soporte de prueba (Gao)": 15050,
+      "F1 de referencia (%)": 55.0,
+      "Flujos de entrenamiento": 34953,
+      "Flujos de prueba": 14980,
+      "F1 O1 TCN (%)": 54.280634573304155,
+      "F1 O2 RF (%)": 84.00012338443506,
+      "F1 O2 XGBoost (%)": 83.24845063508621
+    },
+    {
+      "Clase": "Port_Scanning",
+      "Soporte de prueba (Gao)": 5987,
+      "F1 de referencia (%)": 0.0,
+      "Flujos de entrenamiento": 13984,
+      "Flujos de prueba": 5993,
+      "F1 O1 TCN (%)": 0.0,
+      "F1 O2 RF (%)": 97.97253106605625,
+      "F1 O2 XGBoost (%)": 97.92347939829953
+    },
+    {
+      "Clase": "Ransomware",
+      "Soporte de prueba (Gao)": 2892,
+      "F1 de referencia (%)": 93.0,
+      "Flujos de entrenamiento": 6782,
+      "Flujos de prueba": 2907,
+      "F1 O1 TCN (%)": 92.89478466291114,
+      "F1 O2 RF (%)": 92.75258836129953,
+      "F1 O2 XGBoost (%)": 93.32155477031802
+    },
+    {
+      "Clase": "SQL_injection",
+      "Soporte de prueba (Gao)": 15141,
+      "F1 de referencia (%)": 28.0,
+      "Flujos de entrenamiento": 35578,
+      "Flujos de prueba": 15248,
+      "F1 O1 TCN (%)": 27.400744124711533,
+      "F1 O2 RF (%)": 85.21608417888012,
+      "F1 O2 XGBoost (%)": 84.13589140820505
+    },
+    {
+      "Clase": "Uploading",
+      "Soporte de prueba (Gao)": 11033,
+      "F1 de referencia (%)": 43.0,
+      "Flujos de entrenamiento": 25765,
+      "Flujos de prueba": 11042,
+      "F1 O1 TCN (%)": 44.11024702653248,
+      "F1 O2 RF (%)": 84.09680575049977,
+      "F1 O2 XGBoost (%)": 83.58930844293594
+    },
+    {
+      "Clase": "Vulnerability_scanner",
+      "Soporte de prueba (Gao)": 15040,
+      "F1 de referencia (%)": 88.0,
+      "Flujos de entrenamiento": 35018,
+      "Flujos de prueba": 15008,
+      "F1 O1 TCN (%)": 88.13678581480438,
+      "F1 O2 RF (%)": 97.47830525778458,
+      "F1 O2 XGBoost (%)": 96.13210148924435
+    },
+    {
+      "Clase": "XSS",
+      "Soporte de prueba (Gao)": 4535,
+      "F1 de referencia (%)": 2.0,
+      "Flujos de entrenamiento": 10546,
+      "Flujos de prueba": 4520,
+      "F1 O1 TCN (%)": 1.7015706806282722,
+      "F1 O2 RF (%)": 85.8648677137135,
+      "F1 O2 XGBoost (%)": 81.62582422989864
+    },
+    {
+      "Clase": "Total / F1 macro",
+      "Soporte de prueba (Gao)": 572864,
+      "F1 de referencia (%)": 68.0,
+      "Flujos de entrenamiento": 1336769,
+      "Flujos de prueba": 572902,
+      "F1 O1 TCN (%)": 68.80856084788428,
+      "F1 O2 RF (%)": 93.34328591009759,
+      "F1 O2 XGBoost (%)": 89.98627000106222
+    }
+  ],
+  "tabla_14_5": [
+    {
+      "Rep.": 5,
+      "Semilla": 1005,
+      "k": 25,
+      "T": 0,
+      "RF: árboles": 25,
+      "RF: profundidad": 15,
+      "XGB: árboles": 50,
+      "XGB: profundidad": 4,
+      "Flujos de entrenamiento balanceado": 1336769
+    }
+  ],
+  "episodios": {
+    "formato_frame_time": "solo hora del día (sin fecha)",
+    "fraccion_legible": 0.9361548746557002,
+    "episodios_de_ataque": 34113,
+    "fraccion_flujos_en_episodios_largos": 0.5556578171091445,
+    "criterio": ">= 50% de flujos de ataque en episodios de >= 10 flujos",
+    "retardo_calculable": false
+  },
+  "tiempos": {
+    "entrenamiento_tcn_min": 23.793333333333333,
+    "validacion_cruzada_min": 6.579432480849998,
+    "entrenamiento_rf_s": 4.1577470070001254,
+    "entrenamiento_xgb_s": 0.8
+  },
+  "seleccion": {
+    "k": 25,
+    "T": 0,
+    "rf_arboles": 25,
+    "rf_profundidad": 15,
+    "xgb_arboles": 50,
+    "xgb_profundidad": 4,
+    "xgb_lr": 0.1,
+    "atributos_k": [
+      "mqtt.conack.flags-0.0",
+      "mqtt.protoname-0.0",
+      "mqtt.topic-0.0",
+      "dns.qry.name.len-0.0",
+      "dns.qry.name.len-0",
+      "tcp.ack",
+      "tcp.flags",
+      "mqtt.topic-0",
+      "mqtt.protoname-0",
+      "mqtt.conack.flags-0",
+      "tcp.seq",
+      "http.request.version-0.0",
+      "http.request.method-0.0",
+      "http.request.version-0",
+      "http.request.method-0",
+      "tcp.ack_raw",
+      "tcp.checksum",
+      "tcp.flags.ack",
+      "http.referer-0.0",
+      "udp.stream",
+      "http.referer-0",
+      "tcp.len",
+      "icmp.checksum",
+      "icmp.seq_le",
+      "http.content_length"
+    ],
+    "tiempo_cv_s": 394.8,
+    "eleccion": {
+      "T": 0,
+      "f1_macro_cv": 93.30018853193589,
+      "mejor_f1_cv": 93.30018853193589,
+      "tamano_kb_cv": 5094.417643229167
+    }
+  },
+  "finales": {
+    "flujos_entrenamiento_balanceado": 1336769,
+    "tiempo_balanceo_s": 0.2,
+    "tiempo_entrenamiento_rf_s": 4.16,
+    "tamano_c3_kb": 877.888671875,
+    "nodos": 29745,
+    "T_elegido": 0
+  },
+  "verificacion_tcn": {
+    "exactitud": 93.63102240871912,
+    "f1_ponderado": 92.63880423367418,
+    "f1_macro": 68.80856084788428
+  },
+  "runtime_comun": {
+    "tcn": {
+      "formato": "onnx",
+      "tipo": "tcn",
+      "n_flujos": 572902,
+      "lote": 1024,
+      "tiempo_total_s": 0.8398372990000098,
+      "latencia_ms_por_flujo": 0.0014659353589270238,
+      "tiempo_carga_s": 0.7575555200000963,
+      "rss_datos_mb": 68.86328125,
+      "rss_runtime_mb": 88.56640625,
+      "rss_modelo_mb": 98.73046875,
+      "rss_pico_mb": 104.59375,
+      "memoria_pico_mb": 5.86328125,
+      "memoria_modelo_mb": 10.1640625,
+      "memoria_runtime_mb": 19.703125,
+      "memoria_total_mb": 35.73046875,
+      "tamano_archivo_kb": 28.97265625,
+      "lote1_n": 10000,
+      "lote1_mediana_ms": 0.05185,
+      "lote1_p95_ms": 0.06722099999999999,
+      "lote1_p99_ms": 0.07912120000000002,
+      "lote1_media_ms": 0.053962048699999994,
+      "lote1_acuerdo_con_lote1024": 1.0,
+      "respuesta_mediana_ms": 0.059791,
+      "respuesta_p95_ms": 0.07691905,
+      "respuesta_acuerdo_con_lote1": 1.0,
+      "f1_macro": 68.80856084788428,
+      "tamano_gzip_kb": 16.71875
+    },
+    "rf": {
+      "formato": "onnx",
+      "tipo": "rf",
+      "n_flujos": 572902,
+      "lote": 1024,
+      "tiempo_total_s": 0.8373985690000154,
+      "latencia_ms_por_flujo": 0.001461678557589283,
+      "tiempo_carga_s": 0.07545353899968177,
+      "rss_datos_mb": 84.26953125,
+      "rss_runtime_mb": 103.859375,
+      "rss_modelo_mb": 140.08984375,
+      "rss_pico_mb": 140.3203125,
+      "memoria_pico_mb": 0.23046875,
+      "memoria_modelo_mb": 36.23046875,
+      "memoria_runtime_mb": 19.58984375,
+      "memoria_total_mb": 56.05078125,
+      "tamano_archivo_kb": 3547.3935546875,
+      "lote1_n": 10000,
+      "lote1_mediana_ms": 0.0116245,
+      "lote1_p95_ms": 0.020711499999999976,
+      "lote1_p99_ms": 0.03203,
+      "lote1_media_ms": 0.0128655713,
+      "lote1_acuerdo_con_lote1024": 1.0,
+      "respuesta_mediana_ms": 0.01968,
+      "respuesta_p95_ms": 0.03161049999999999,
+      "respuesta_acuerdo_con_lote1": 1.0,
+      "f1_macro": 93.3432859100976,
+      "tamano_gzip_kb": 216.884765625
+    }
+  },
+  "cota_retardo": {
+    "tcn": {
+      "flujos_ataque_como_normal": 0,
+      "clases_con_fallos": 0,
+      "flujos_peor_caso_max": 0,
+      "flujos_esperado_media": 0.0
+    },
+    "rf": {
+      "flujos_ataque_como_normal": 0,
+      "clases_con_fallos": 0,
+      "flujos_peor_caso_max": 0,
+      "flujos_esperado_media": 0.0
+    }
+  },
+  "control": {
+    "tcn_f1_igual_v1": true,
+    "xgb_f1_igual_v1": true
+  }
+}

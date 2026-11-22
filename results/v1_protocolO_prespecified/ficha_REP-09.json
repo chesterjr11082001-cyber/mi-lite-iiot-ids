@@ -1,0 +1,384 @@
+{
+  "tabla_14_2": {
+    "codigo_corrida": "REP-09",
+    "repeticion": 9,
+    "semilla": 1009,
+    "fecha_hora": "11/11/2026 19:07",
+    "evaluadores": "Leonardo Leoncio Villanueva Fonseca; Ricardo Franco Baldoceda Rios",
+    "archivo_datos": "DNN-EdgeIIoT-dataset.csv",
+    "procesador": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "nucleos_logicos": 8,
+    "ram_total_gb": 50.99,
+    "acelerador_entrenamiento_tcn": "Tesla T4",
+    "medicion": "CPU, 1 hilo, lotes de 1024, un proceso por modelo",
+    "python": "3.13.16",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.6.1",
+    "imbalanced_learn": "0.14.2",
+    "xgboost": "3.4.1",
+    "tensorflow": "2.21.0",
+    "keras": "3.13.2",
+    "scipy": "1.16.3",
+    "modo_prueba": false
+  },
+  "preprocesamiento": {
+    "registros_brutos": 2219201,
+    "tras_faltantes": 2219201,
+    "registros_depurados": 1909671,
+    "duplicados_eliminados": 309530,
+    "filas_no_finitas": 0,
+    "atributos_tras_retiro": 46,
+    "dimensiones_tras_codificacion": 95,
+    "clases": [
+      "Backdoor",
+      "DDoS_HTTP",
+      "DDoS_ICMP",
+      "DDoS_TCP",
+      "DDoS_UDP",
+      "Fingerprinting",
+      "MITM",
+      "Normal",
+      "Password",
+      "Port_Scanning",
+      "Ransomware",
+      "SQL_injection",
+      "Uploading",
+      "Vulnerability_scanner",
+      "XSS"
+    ],
+    "esperado_gao": {
+      "registros_depurados": 1909671,
+      "dimensiones": 97
+    }
+  },
+  "tabla_14_3": [
+    {
+      "Indicador (unidad)": "VARIABLE INDEPENDIENTE",
+      "Referencia (Gao et al., 2026)": null,
+      "O1 TCN": null,
+      "O2 RF": null,
+      "O2 XGBoost": null,
+      "Δ (RF − TCN)": NaN,
+      "Δ% (RF vs. TCN)": NaN
+    },
+    {
+      "Indicador (unidad)": "Pico de memoria RAM (MB)",
+      "Referencia (Gao et al., 2026)": "39,48 (d)",
+      "O1 TCN": 120.23046875,
+      "O2 RF": 4.7890625,
+      "O2 XGBoost": 5.48046875,
+      "Δ (RF − TCN)": -115.44140625,
+      "Δ% (RF vs. TCN)": -96.01676467721498
+    },
+    {
+      "Indicador (unidad)": "Tamaño del modelo serializado (KB)",
+      "Referencia (Gao et al., 2026)": "16,25 (a)",
+      "O1 TCN": 166.44921875,
+      "O2 RF": 3108.2197265625,
+      "O2 XGBoost": 782.5400390625,
+      "Δ (RF − TCN)": 2941.7705078125,
+      "Δ% (RF vs. TCN)": 1767.3681678439839
+    },
+    {
+      "Indicador (unidad)": "Número de atributos (n.º)",
+      "Referencia (Gao et al., 2026)": "18",
+      "O1 TCN": 18,
+      "O2 RF": 25,
+      "O2 XGBoost": 25,
+      "Δ (RF − TCN)": 7.0,
+      "Δ% (RF vs. TCN)": 38.88888888888889
+    },
+    {
+      "Indicador (unidad)": "VARIABLE DEPENDIENTE",
+      "Referencia (Gao et al., 2026)": null,
+      "O1 TCN": null,
+      "O2 RF": null,
+      "O2 XGBoost": null,
+      "Δ (RF − TCN)": NaN,
+      "Δ% (RF vs. TCN)": NaN
+    },
+    {
+      "Indicador (unidad)": "Puntaje F1 macro (%)",
+      "Referencia (Gao et al., 2026)": "≈ 68,0 (b)",
+      "O1 TCN": 68.49755279408924,
+      "O2 RF": 90.24685696196752,
+      "O2 XGBoost": 89.63164469069781,
+      "Δ (RF − TCN)": 21.74930416787828,
+      "Δ% (RF vs. TCN)": 31.751943362500768
+    },
+    {
+      "Indicador (unidad)": "Latencia de inferencia (ms/muestra)",
+      "Referencia (Gao et al., 2026)": "0,85 (d)",
+      "O1 TCN": 0.001956891215254172,
+      "O2 RF": 0.003368565749462345,
+      "O2 XGBoost": 0.010168364840758958,
+      "Δ (RF − TCN)": 0.0014116745342081733,
+      "Δ% (RF vs. TCN)": 72.13863106973054
+    },
+    {
+      "Indicador (unidad)": "Retardo de detección (ms; mediana)",
+      "Referencia (Gao et al., 2026)": "No reportado",
+      "O1 TCN": "no calculable",
+      "O2 RF": "no calculable",
+      "O2 XGBoost": "no calculable",
+      "Δ (RF − TCN)": NaN,
+      "Δ% (RF vs. TCN)": NaN
+    },
+    {
+      "Indicador (unidad)": "Episodios de ataque no detectados (n.º)",
+      "Referencia (Gao et al., 2026)": "No reportado",
+      "O1 TCN": "no calculable",
+      "O2 RF": "no calculable",
+      "O2 XGBoost": "no calculable",
+      "Δ (RF − TCN)": NaN,
+      "Δ% (RF vs. TCN)": NaN
+    },
+    {
+      "Indicador (unidad)": "Proporción de falsas alarmas, TFP (%)",
+      "Referencia (Gao et al., 2026)": "No reportada (c)",
+      "O1 TCN": 0.0,
+      "O2 RF": 0.0,
+      "O2 XGBoost": 0.0,
+      "Δ (RF − TCN)": NaN,
+      "Δ% (RF vs. TCN)": NaN
+    }
+  ],
+  "reduccion_ec_14_3": {
+    "memoria_R_%": 96.01676467721498,
+    "tamano_R_%": -1767.3681678439839,
+    "atributos_R_%": 73.68421052631578,
+    "total_atributos_depurados": 95
+  },
+  "tabla_14_4": [
+    {
+      "Clase": "Backdoor",
+      "Soporte de prueba (Gao)": 7193,
+      "F1 de referencia (%)": 96.0,
+      "Flujos de entrenamiento": 16818,
+      "Flujos de prueba": 7208,
+      "F1 O1 TCN (%)": 96.51918211037408,
+      "F1 O2 RF (%)": 96.41502683363149,
+      "F1 O2 XGBoost (%)": 96.38968481375359
+    },
+    {
+      "Clase": "DDoS_HTTP",
+      "Soporte de prueba (Gao)": 14540,
+      "F1 de referencia (%)": 82.0,
+      "Flujos de entrenamiento": 33981,
+      "Flujos de prueba": 14563,
+      "F1 O1 TCN (%)": 81.80420297283445,
+      "F1 O2 RF (%)": 93.14164669930895,
+      "F1 O2 XGBoost (%)": 91.9965367965368
+    },
+    {
+      "Clase": "DDoS_ICMP",
+      "Soporte de prueba (Gao)": 20217,
+      "F1 de referencia (%)": 99.0,
+      "Flujos de entrenamiento": 47557,
+      "Flujos de prueba": 20382,
+      "F1 O1 TCN (%)": 99.75702540188979,
+      "F1 O2 RF (%)": 99.81571123178612,
+      "F1 O2 XGBoost (%)": 99.70234434577256
+    },
+    {
+      "Clase": "DDoS_TCP",
+      "Soporte de prueba (Gao)": 15035,
+      "F1 de referencia (%)": 83.0,
+      "Flujos de entrenamiento": 35044,
+      "Flujos de prueba": 15018,
+      "F1 O1 TCN (%)": 82.8034960985966,
+      "F1 O2 RF (%)": 100.0,
+      "F1 O2 XGBoost (%)": 100.0
+    },
+    {
+      "Clase": "DDoS_UDP",
+      "Soporte de prueba (Gao)": 36523,
+      "F1 de referencia (%)": 99.0,
+      "Flujos de entrenamiento": 85097,
+      "Flujos de prueba": 36470,
+      "F1 O1 TCN (%)": 99.9890332839831,
+      "F1 O2 RF (%)": 99.98354541465555,
+      "F1 O2 XGBoost (%)": 99.9945157398267
+    },
+    {
+      "Clase": "Fingerprinting",
+      "Soporte de prueba (Gao)": 250,
+      "F1 de referencia (%)": 52.0,
+      "Flujos de entrenamiento": 597,
+      "Flujos de prueba": 256,
+      "F1 O1 TCN (%)": 59.009009009009006,
+      "F1 O2 RF (%)": 45.45454545454545,
+      "F1 O2 XGBoost (%)": 42.28121927236971
+    },
+    {
+      "Clase": "MITM",
+      "Soporte de prueba (Gao)": 101,
+      "F1 de referencia (%)": 100.0,
+      "Flujos de entrenamiento": 251,
+      "Flujos de prueba": 107,
+      "F1 O1 TCN (%)": 100.0,
+      "F1 O2 RF (%)": 96.83257918552036,
+      "F1 O2 XGBoost (%)": 96.83257918552036
+    },
+    {
+      "Clase": "Normal",
+      "Soporte de prueba (Gao)": 409327,
+      "F1 de referencia (%)": 100.0,
+      "Flujos de entrenamiento": 954798,
+      "Flujos de prueba": 409200,
+      "F1 O1 TCN (%)": 100.0,
+      "F1 O2 RF (%)": 100.0,
+      "F1 O2 XGBoost (%)": 100.0
+    },
+    {
+      "Clase": "Password",
+      "Soporte de prueba (Gao)": 15050,
+      "F1 de referencia (%)": 55.0,
+      "Flujos de entrenamiento": 34953,
+      "Flujos de prueba": 14980,
+      "F1 O1 TCN (%)": 54.02317237596838,
+      "F1 O2 RF (%)": 83.79849595670369,
+      "F1 O2 XGBoost (%)": 83.61912384939815
+    },
+    {
+      "Clase": "Port_Scanning",
+      "Soporte de prueba (Gao)": 5987,
+      "F1 de referencia (%)": 0.0,
+      "Flujos de entrenamiento": 13984,
+      "Flujos de prueba": 5993,
+      "F1 O1 TCN (%)": 0.0,
+      "F1 O2 RF (%)": 98.01194469442854,
+      "F1 O2 XGBoost (%)": 98.04402978967182
+    },
+    {
+      "Clase": "Ransomware",
+      "Soporte de prueba (Gao)": 2892,
+      "F1 de referencia (%)": 93.0,
+      "Flujos de entrenamiento": 6782,
+      "Flujos de prueba": 2907,
+      "F1 O1 TCN (%)": 92.75679620507206,
+      "F1 O2 RF (%)": 92.87598944591029,
+      "F1 O2 XGBoost (%)": 92.97220747034874
+    },
+    {
+      "Clase": "SQL_injection",
+      "Soporte de prueba (Gao)": 15141,
+      "F1 de referencia (%)": 28.0,
+      "Flujos de entrenamiento": 35578,
+      "Flujos de prueba": 15248,
+      "F1 O1 TCN (%)": 25.070923690916956,
+      "F1 O2 RF (%)": 84.76695302504112,
+      "F1 O2 XGBoost (%)": 84.69318439127481
+    },
+    {
+      "Clase": "Uploading",
+      "Soporte de prueba (Gao)": 11033,
+      "F1 de referencia (%)": 43.0,
+      "Flujos de entrenamiento": 25765,
+      "Flujos de prueba": 11042,
+      "F1 O1 TCN (%)": 45.15378221113882,
+      "F1 O2 RF (%)": 83.7728108038805,
+      "F1 O2 XGBoost (%)": 83.75647448416404
+    },
+    {
+      "Clase": "Vulnerability_scanner",
+      "Soporte de prueba (Gao)": 15040,
+      "F1 de referencia (%)": 88.0,
+      "Flujos de entrenamiento": 35018,
+      "Flujos de prueba": 15008,
+      "F1 O1 TCN (%)": 88.35783017870361,
+      "F1 O2 RF (%)": 96.61578390192261,
+      "F1 O2 XGBoost (%)": 94.83743637685676
+    },
+    {
+      "Clase": "XSS",
+      "Soporte de prueba (Gao)": 4535,
+      "F1 de referencia (%)": 2.0,
+      "Flujos de entrenamiento": 10546,
+      "Flujos de prueba": 4520,
+      "F1 O1 TCN (%)": 2.21883837285186,
+      "F1 O2 RF (%)": 82.21782178217822,
+      "F1 O2 XGBoost (%)": 79.35533384497315
+    },
+    {
+      "Clase": "Total / F1 macro",
+      "Soporte de prueba (Gao)": 572864,
+      "F1 de referencia (%)": 68.0,
+      "Flujos de entrenamiento": 1336769,
+      "Flujos de prueba": 572902,
+      "F1 O1 TCN (%)": 68.49755279408924,
+      "F1 O2 RF (%)": 90.24685696196752,
+      "F1 O2 XGBoost (%)": 89.63164469069781
+    }
+  ],
+  "tabla_14_5": [
+    {
+      "Rep.": 9,
+      "Semilla": 1009,
+      "k": 25,
+      "T": 2000,
+      "RF: árboles": 25,
+      "RF: profundidad": 15,
+      "XGB: árboles": 50,
+      "XGB: profundidad": 4,
+      "Flujos de entrenamiento balanceado": 24598
+    }
+  ],
+  "episodios": {
+    "formato_frame_time": "solo hora del día (sin fecha)",
+    "fraccion_legible": 0.9361548746557002,
+    "episodios_de_ataque": 34324,
+    "fraccion_flujos_en_episodios_largos": 0.5527315634218289,
+    "criterio": ">= 50% de flujos de ataque en episodios de >= 10 flujos",
+    "retardo_calculable": false
+  },
+  "tiempos": {
+    "entrenamiento_tcn_min": 24.183333333333334,
+    "validacion_cruzada_min": 9.341666666666667,
+    "entrenamiento_rf_s": 0.1,
+    "entrenamiento_xgb_s": 0.6
+  },
+  "seleccion": {
+    "k": 25,
+    "T": 2000,
+    "rf_arboles": 25,
+    "rf_profundidad": 15,
+    "xgb_arboles": 50,
+    "xgb_profundidad": 4,
+    "xgb_lr": 0.1,
+    "atributos_k": [
+      "mqtt.conack.flags-0.0",
+      "mqtt.protoname-0.0",
+      "mqtt.topic-0.0",
+      "dns.qry.name.len-0.0",
+      "dns.qry.name.len-0",
+      "tcp.ack",
+      "tcp.flags",
+      "mqtt.topic-0",
+      "mqtt.conack.flags-0",
+      "mqtt.protoname-0",
+      "tcp.seq",
+      "http.request.version-0.0",
+      "http.request.method-0.0",
+      "http.request.version-0",
+      "http.request.method-0",
+      "tcp.ack_raw",
+      "tcp.checksum",
+      "tcp.flags.ack",
+      "http.referer-0.0",
+      "http.referer-0",
+      "udp.stream",
+      "tcp.len",
+      "icmp.checksum",
+      "icmp.seq_le",
+      "http.content_length"
+    ],
+    "tiempo_cv_s": 560.5
+  },
+  "verificacion_tcn": {
+    "exactitud": 93.61042551780234,
+    "f1_ponderado": 92.60241004571479,
+    "f1_macro": 68.49755279408924
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "generado": "18/11/2026 17:53",
+  "reps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "M7": {
+    "veredicto": {
+      "H.E. 2 (versión 2)": "Respaldada",
+      "retardo": "RD = t_resp: TCN y MI-LiteRF alarman en el primer flujo de todo episodio, con cualquier orden (10 REP)",
+      "(b1) MI-LiteRF necesita más flujos que la TCN": false
+    },
+    "pruebas": [
+      {
+        "componente": "(a) latencia por flujo, lote de 1 (ms)",
+        "media_O1": 0.0483951,
+        "media_O2": 0.0104292,
+        "p_holm": 1.9957372922975725e-13
+      },
+      {
+        "componente": "(b2) tiempo de respuesta por flujo, t_resp (ms)",
+        "media_O1": 0.0632961,
+        "media_O2": 0.01913,
+        "p_holm": 3.087216975927366e-13
+      }
+    ],
+    "flujos_ataque_como_normal": {
+      "mean": {
+        "rf": 0.0,
+        "tcn": 0.0,
+        "xgb": 0.0
+      },
+      "max": {
+        "rf": 0,
+        "tcn": 0,
+        "xgb": 0
+      }
+    }
+  },
+  "M6": {
+    "f1_m6": [
+      87.3088681974987,
+      1.6143310698897955
+    ],
+    "f1_tcn": [
+      68.5299804531817,
+      0.7341703819981483
+    ],
+    "joblib_m6_kb": [
+      384.4697265625,
+      134.20446623969173
+    ],
+    "c3_m6_kb": [
+      85.255078125,
+      29.235219866733747
+    ],
+    "onnx_m6_kb": [
+      242.44541015625,
+      86.55264632119639
+    ],
+    "onnxgz_m6_kb": [
+      20.15126953125,
+      6.336467894965466
+    ],
+    "nodos": [
+      2101.5,
+      739.3655313097094
+    ],
+    "mem_m6_mb": [
+      5.0984375,
+      0.096121622538555
+    ],
+    "lat1024_m6_ms": [
+      0.0012879696839948327,
+      0.0005089359739648923
+    ],
+    "lat1024_tcn_ms": [
+      0.0016476742128671029,
+      0.0002992749486301006
+    ],
+    "lote1_m6_ms": [
+      0.009114999999999998,
+      0.00043630926849859354
+    ],
+    "resp_m6_ms": [
+      0.017694,
+      0.000678269202537687
+    ],
+    "atributos_R_%": 81.05263157894737,
+    "pruebas_f1": [
+      {
+        "comparación": "M6 − v1 (F1 macro)",
+        "media_d": -3.0085391839414655,
+        "p_holm": 0.0004988303842628647
+      },
+      {
+        "comparación": "M6 − TCN (F1 macro)",
+        "media_d": 18.778887744317025,
+        "p_holm": 9.391367232919818e-11
+      },
+      {
+        "comparación": "M6 − A1 (18 atributos de Gao; igual k)",
+        "media_d": 2.530723111864414,
+        "p_holm": 0.0008761354932872324
+      }
+    ],
+    "pruebas_costos": [
+      {
+        "indicador": "Tamaño: joblib vs .keras (KB)",
+        "media_O1": 166.44921875,
+        "media_O2": 384.4697265625,
+        "R_%": -130.98319682711036,
+        "nivel": "Crítico",
+        "p_holm": 1.0
+      },
+      {
+        "indicador": "Tamaño: ONNX vs ONNX (KB)",
+        "media_O1": 28.98720703125,
+        "media_O2": 242.44541015625,
+        "R_%": -736.3876171128832,
+        "nivel": "Crítico",
+        "p_holm": 1.0
+      },
+      {
+        "indicador": "Tamaño: ONNX gzip vs ONNX gzip (KB)",
+        "media_O1": 16.7306640625,
+        "media_O2": 20.15126953125,
+        "R_%": -20.445126720444545,
+        "nivel": "Crítico",
+        "p_holm": 1.0
+      },
+      {
+        "indicador": "Memoria pico, def. v1 (MB)",
+        "media_O1": 122.6421875,
+        "media_O2": 5.0984375,
+        "R_%": 95.84283548432305,
+        "nivel": "Óptimo",
+        "p_holm": 0.005859375
+      },
+      {
+        "indicador": "Memoria total, ONNX (MB)",
+        "media_O1": 35.56875,
+        "media_O2": 37.201171875,
+        "R_%": -4.589483394833945,
+        "nivel": "Crítico",
+        "p_holm": 1.0
+      },
+      {
+        "indicador": "Latencia, lote de 1 024 (ms)",
+        "media_O1": 0.0016476742128671029,
+        "media_O2": 0.0012879696839948327,
+        "R_%": 21.83104682122515,
+        "nivel": "—",
+        "p_holm": 0.06850407677432013
+      },
+      {
+        "indicador": "Latencia, lote de 1, ONNX (ms)",
+        "media_O1": 0.04761,
+        "media_O2": 0.009114999999999998,
+        "R_%": 80.85486242386054,
+        "nivel": "—",
+        "p_holm": 1.7267495860629888e-14
+      },
+      {
+        "indicador": "Tiempo de respuesta por flujo, ONNX (ms)",
+        "media_O1": 0.0627841,
+        "media_O2": 0.017694,
+        "R_%": 71.81770543816029,
+        "nivel": "—",
+        "p_holm": 6.376712635214072e-13
+      }
+    ]
+  },
+  "M4": {
+    "f1_tcn_v1": [
+      68.5299804531817,
+      0.7341703819981483
+    ],
+    "f1_rf_sin_art": [
+      75.3388169208792,
+      1.1372878586687785
+    ],
+    "f1_rf_v1": [
+      90.31740738144018,
+      0.11754195100414466
+    ],
+    "tfp_tcn": [
+      4.887585532746823e-05,
+      0.00015455902542367445
+    ],
+    "tfp_rf_sin_art": [
+      13.519208211143695,
+      1.8454816592433316
+    ],
+    "comparaciones": [
+      {
+        "comparación": "RF sin artefacto > TCN v1 (F1)",
+        "media_d": 6.808836467697508,
+        "p": 7.601165274687439e-09
+      },
+      {
+        "comparación": "RF sin artefacto − RF v1 (F1)",
+        "media_d": -14.97859046056098,
+        "p": 1.1402872705330558e-11
+      }
+    ],
+    "cota_rf_sin_artefacto": {
+      "flujos_ataque_como_normal_media": 1871.9,
+      "flujos_peor_caso_max_media": 618.3
+    }
+  }
+}

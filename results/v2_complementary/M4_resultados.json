@@ -1,0 +1,221 @@
+{
+  "por_rep": [
+    {
+      "rep": 1,
+      "f1_tcn_v1": 68.45504839542937,
+      "f1_rf_sin_art": 75.56834991276791,
+      "f1_rf_v1": 90.09064801956244,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 12.469696969696969,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, http.request.method-0, http.request.version-0, mqtt.len, http.request.version-HTTP/1.1, http.request.method-GET, http.response, tcp.connection.rst, tcp.connection.fin, mqtt.topic_len, mqtt.topic-0, mqtt.topic-Temperature_and_Humidity"
+    },
+    {
+      "rep": 2,
+      "f1_tcn_v1": 68.93825464737668,
+      "f1_rf_sin_art": 74.85313555491153,
+      "f1_rf_v1": 90.50387750224051,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 12.019794721407624,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, http.request.method-0, http.request.version-0, mqtt.len, http.request.version-HTTP/1.1, http.request.method-GET, http.response, tcp.connection.rst, tcp.connection.fin, mqtt.conack.flags-0, mqtt.conack.flags-0x00000000, mqtt.topic_len"
+    },
+    {
+      "rep": 3,
+      "f1_tcn_v1": 69.85627964816169,
+      "f1_rf_sin_art": 76.05897560565917,
+      "f1_rf_v1": 90.3179272779464,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 13.541544477028348,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, mqtt.len, http.response, http.request.method-0, http.request.version-0, http.request.version-HTTP/1.1, http.request.method-GET, tcp.connection.rst, tcp.connection.fin, mqtt.conflag.cleansess, mqtt.conflags, mqtt.proto_len"
+    },
+    {
+      "rep": 4,
+      "f1_tcn_v1": 68.3052739444101,
+      "f1_rf_sin_art": 77.60386184094459,
+      "f1_rf_v1": 90.46936508441834,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 9.36217008797654,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, mqtt.len, http.response, http.request.method-0, http.request.version-0, http.request.version-HTTP/1.1, http.request.method-GET, tcp.connection.rst, tcp.connection.fin, mqtt.conack.flags-0, mqtt.conack.flags-0x00000000, mqtt.topic_len"
+    },
+    {
+      "rep": 5,
+      "f1_tcn_v1": 68.80856084788428,
+      "f1_rf_sin_art": 74.46325193309276,
+      "f1_rf_v1": 90.29948766996208,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 13.726050830889541,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, mqtt.len, http.request.method-0, http.request.version-0, http.response, http.request.version-HTTP/1.1, http.request.method-GET, tcp.connection.rst, tcp.connection.fin, mqtt.conack.flags-0, mqtt.conack.flags-0x00000000, mqtt.conflag.cleansess"
+    },
+    {
+      "rep": 6,
+      "f1_tcn_v1": 68.87682753536585,
+      "f1_rf_sin_art": 76.38189597055676,
+      "f1_rf_v1": 90.31562887161954,
+      "tfp_tcn": 0.0004887585532746823,
+      "tfp_rf_sin_art": 14.305474095796678,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, mqtt.len, http.response, http.request.method-0, http.request.version-0, http.request.version-HTTP/1.1, http.request.method-GET, tcp.connection.rst, tcp.connection.fin, mqtt.conack.flags-0, mqtt.conack.flags-0x00000000, mqtt.conflag.cleansess"
+    },
+    {
+      "rep": 7,
+      "f1_tcn_v1": 68.37968403293395,
+      "f1_rf_sin_art": 75.65533131843219,
+      "f1_rf_v1": 90.31085859280033,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 15.700146627565983,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, http.request.method-0, http.request.version-0, mqtt.len, http.request.version-HTTP/1.1, http.request.method-GET, http.response, tcp.connection.rst, tcp.connection.fin, mqtt.conflag.cleansess, mqtt.conflags, mqtt.proto_len"
+    },
+    {
+      "rep": 8,
+      "f1_tcn_v1": 66.92600083504854,
+      "f1_rf_sin_art": 74.30772002406026,
+      "f1_rf_v1": 90.24043097998724,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 14.259530791788858,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, mqtt.len, http.request.method-0, http.request.version-0, http.request.version-HTTP/1.1, http.request.method-GET, http.response, tcp.connection.rst, tcp.connection.fin, mqtt.topic-0, mqtt.topic_len, mqtt.topic-Temperature_and_Humidity"
+    },
+    {
+      "rep": 9,
+      "f1_tcn_v1": 68.49755279408924,
+      "f1_rf_sin_art": 74.63813170179289,
+      "f1_rf_v1": 90.24685696196752,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 15.23631476050831,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, http.request.method-0, http.request.version-0, mqtt.len, http.request.version-HTTP/1.1, http.request.method-GET, http.response, tcp.connection.rst, tcp.connection.fin, mqtt.conflag.cleansess, mqtt.conflags, mqtt.proto_len"
+    },
+    {
+      "rep": 10,
+      "f1_tcn_v1": 68.25632185111716,
+      "f1_rf_sin_art": 73.85751534657389,
+      "f1_rf_v1": 90.37899285389737,
+      "tfp_tcn": 0.0,
+      "tfp_rf_sin_art": 14.571358748778104,
+      "atributos": "tcp.ack, tcp.flags, tcp.seq, tcp.ack_raw, tcp.checksum, tcp.flags.ack, udp.stream, tcp.len, icmp.checksum, icmp.seq_le, http.content_length, mqtt.hdrflags, mqtt.msgtype, tcp.connection.syn, mqtt.len, http.request.method-0, http.request.version-0, http.request.version-HTTP/1.1, http.request.method-GET, http.response, tcp.connection.rst, tcp.connection.fin, mqtt.conflag.cleansess, mqtt.conflags, mqtt.proto_len"
+    }
+  ],
+  "comparaciones": [
+    {
+      "comparación": "RF sin artefacto > TCN v1 (F1)",
+      "n": 10,
+      "media_O1": 68.5299804531817,
+      "media_O2": 75.3388169208792,
+      "alternativa": "greater",
+      "media_d": 6.808836467697508,
+      "de_d": 1.1414411548013472,
+      "shapiro_p": 0.1464090884754053,
+      "prueba": "t pareada",
+      "estadistico": 18.863374045144596,
+      "gl": 9,
+      "p": 7.601165274687439e-09,
+      "dz": 5.965122633836079,
+      "ic95_d": [
+        5.992298654831058,
+        7.625374280563958
+      ],
+      "evaluable": true,
+      "estado": "Evaluada"
+    },
+    {
+      "comparación": "RF sin artefacto − RF v1 (F1)",
+      "n": 10,
+      "media_O1": 90.31740738144018,
+      "media_O2": 75.3388169208792,
+      "alternativa": "two-sided",
+      "media_d": -14.97859046056098,
+      "de_d": 1.1186587550471343,
+      "shapiro_p": 0.6613123079096082,
+      "prueba": "t pareada",
+      "estadistico": -42.34219039589729,
+      "gl": 9,
+      "p": 1.1402872705330558e-11,
+      "dz": -13.389776277154208,
+      "ic95_d": [
+        -15.778830726428266,
+        -14.178350194693694
+      ],
+      "evaluable": true,
+      "estado": "Evaluada"
+    }
+  ],
+  "config": "v1",
+  "cota_retardo_rf_sin_artefacto": [
+    {
+      "rep": 1,
+      "flujos_peor_caso_media": 168.57142857142858,
+      "flujos_peor_caso_max": 751,
+      "flujos_esperado_media": 0.01469375625178031,
+      "clases_con_fallos": 7,
+      "flujos_ataque_como_normal": 2360
+    },
+    {
+      "rep": 2,
+      "flujos_peor_caso_media": 206.85714285714286,
+      "flujos_peor_caso_max": 959,
+      "flujos_esperado_media": 0.01824868374392662,
+      "clases_con_fallos": 7,
+      "flujos_ataque_como_normal": 2896
+    },
+    {
+      "rep": 3,
+      "flujos_peor_caso_media": 130.07142857142858,
+      "flujos_peor_caso_max": 623,
+      "flujos_esperado_media": 0.010815210585130268,
+      "clases_con_fallos": 8,
+      "flujos_ataque_como_normal": 1821
+    },
+    {
+      "rep": 4,
+      "flujos_peor_caso_media": 324.5,
+      "flujos_peor_caso_max": 1430,
+      "flujos_esperado_media": 0.029667824975873,
+      "clases_con_fallos": 10,
+      "flujos_ataque_como_normal": 4543
+    },
+    {
+      "rep": 5,
+      "flujos_peor_caso_media": 129.42857142857142,
+      "flujos_peor_caso_max": 591,
+      "flujos_esperado_media": 0.010617536434528242,
+      "clases_con_fallos": 8,
+      "flujos_ataque_como_normal": 1812
+    },
+    {
+      "rep": 6,
+      "flujos_peor_caso_media": 112.85714285714286,
+      "flujos_peor_caso_max": 644,
+      "flujos_esperado_media": 0.009496758251378332,
+      "clases_con_fallos": 9,
+      "flujos_ataque_como_normal": 1580
+    },
+    {
+      "rep": 7,
+      "flujos_peor_caso_media": 18.857142857142858,
+      "flujos_peor_caso_max": 141,
+      "flujos_esperado_media": 0.0014067624612650838,
+      "clases_con_fallos": 9,
+      "flujos_ataque_como_normal": 264
+    },
+    {
+      "rep": 8,
+      "flujos_peor_caso_media": 92.5,
+      "flujos_peor_caso_max": 374,
+      "flujos_esperado_media": 0.007870950091386114,
+      "clases_con_fallos": 8,
+      "flujos_ataque_como_normal": 1295
+    },
+    {
+      "rep": 9,
+      "flujos_peor_caso_media": 65.35714285714286,
+      "flujos_peor_caso_max": 318,
+      "flujos_esperado_media": 0.005479374906859977,
+      "clases_con_fallos": 9,
+      "flujos_ataque_como_normal": 915
+    },
+    {
+      "rep": 10,
+      "flujos_peor_caso_media": 88.07142857142857,
+      "flujos_peor_caso_max": 352,
+      "flujos_esperado_media": 0.00722438164751832,
+      "clases_con_fallos": 7,
+      "flujos_ataque_como_normal": 1233
+    }
+  ]
+}

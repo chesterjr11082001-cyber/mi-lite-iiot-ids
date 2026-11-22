@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this code or these result records, please cite the article below."
+title: "MI-Lite: code and result records for leakage-free, entropy-guided early intrusion detection on Edge-IIoTset"
+version: 1.0.0
+date-released: 2026-11-22
+license: MIT
+repository-code: "https://github.com/chesterjr11082001-cyber/mi-lite-iiot-ids"
+keywords:
+  - intrusion detection
+  - Industrial IoT
+  - edge computing
+  - mutual information
+  - data leakage
+  - Edge-IIoTset
+authors:
+  - family-names: "Villanueva Fonseca"
+    given-names: "Leonardo Leoncio"
+    affiliation: "Universidad Nacional de Ingeniería"
+  - family-names: "Baldoceda Rios"
+    given-names: "Ricardo Franco"
+    affiliation: "Universidad Nacional de Ingeniería"
+  - family-names: "Tello Canchapoma"
+    given-names: "Yury"
+    affiliation: "Universidad Nacional de Ingeniería"
+preferred-citation:
+  type: article
+  status: in-preparation
+  title: "Lightweight entropy-guided early intrusion detection for IIoT edge network monitoring: a leakage-free reassessment on Edge-IIoTset"
+  journal: "Future Generation Computer Systems"
+  year: 2026
+  authors:
+    - family-names: "Villanueva Fonseca"
+      given-names: "Leonardo Leoncio"
+    - family-names: "Baldoceda Rios"
+      given-names: "Ricardo Franco"
+    - family-names: "Tello Canchapoma"
+      given-names: "Yury"

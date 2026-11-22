@@ -1,0 +1,11 @@
+# Edge-IIoTset is not redistributed: download it from Kaggle (see README)
+*.csv.gz
+DNN-EdgeIIoT-dataset.csv
+data/
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.DS_Store
+# Local outputs of the edge benchmark
+edge_benchmark/resultado_borde.json
