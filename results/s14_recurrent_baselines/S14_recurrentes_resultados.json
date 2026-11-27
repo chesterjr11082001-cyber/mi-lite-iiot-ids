@@ -1,0 +1,1347 @@
+{
+  "generado": "27/11/2026 19:39",
+  "entorno": {
+    "fecha_hora": "27/11/2026 17:35",
+    "evaluadores": "Leonardo Leoncio Villanueva Fonseca; Ricardo Franco Baldoceda Rios",
+    "archivo_datos": "DNN-EdgeIIoT-dataset.csv",
+    "procesador": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "nucleos_logicos": 12,
+    "ram_total_gb": 52.96,
+    "medicion": "CPU, 1 hilo, un proceso por modelo",
+    "python": "3.13.16",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.6.1",
+    "imbalanced_learn": "0.14.2",
+    "xgboost": "3.4.1",
+    "tensorflow": "2.21.0",
+    "keras": "3.13.2",
+    "scipy": "1.16.3",
+    "onnx": "1.23.2",
+    "onnxruntime": "1.32.0",
+    "skl2onnx": "1.20.0",
+    "onnxmltools": "1.16.0",
+    "tf2onnx": "1.17.0"
+  },
+  "reps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "configuracion": {
+    "cfg": {
+      "lr": 0.001,
+      "epocas": 50,
+      "lote": 512,
+      "val_split": 0.1,
+      "paciencia": 5
+    },
+    "lstm": {
+      "unidades": 32
+    },
+    "transformer": {
+      "d": 16,
+      "cabezas": 2,
+      "capas": 2,
+      "ffn": 32,
+      "dropout": 0.1
+    }
+  },
+  "resumen": {
+    "LSTM (MI top-25)": {
+      "f1_macro": [
+        48.39495586212893,
+        6.1197187112556835
+      ],
+      "tfp": [
+        0.21625122189638318,
+        0.11977479351656704
+      ],
+      "ataque_normal_pct": [
+        32.83203626101086,
+        0.8885389698273748
+      ],
+      "epocas": [
+        43.9,
+        9.949316001057001
+      ],
+      "parametros": [
+        4847.0,
+        0.0
+      ],
+      "tiempo_min": [
+        8.419666666666666,
+        1.904378937029726
+      ],
+      "n_rep": 10
+    },
+    "Transformer (MI top-25)": {
+      "f1_macro": [
+        65.5771592563083,
+        2.2175246469413596
+      ],
+      "tfp": [
+        0.15598729227761485,
+        0.15723704624056564
+      ],
+      "ataque_normal_pct": [
+        30.84433910398162,
+        0.9107606497873715
+      ],
+      "epocas": [
+        21.8,
+        7.0206045956804095
+      ],
+      "parametros": [
+        5551.0,
+        0.0
+      ],
+      "tiempo_min": [
+        3.2171666666666665,
+        0.8491590066168518
+      ],
+      "n_rep": 10
+    },
+    "TCN (MI top-25)": {
+      "f1_macro": [
+        64.55961308331305,
+        4.180015809937909
+      ],
+      "tfp": [
+        2.556353861192571,
+        4.5000871939218055
+      ],
+      "ataque_normal_pct": [
+        29.596950556499007,
+        1.836383930127256
+      ],
+      "n_rep": 10
+    },
+    "TCN (Gao's 18)": {
+      "f1_macro": [
+        35.62136798974697,
+        2.582272400168787
+      ],
+      "tfp": [
+        14.252932551319649,
+        16.70445624779741
+      ],
+      "ataque_normal_pct": [
+        31.039510818438384,
+        7.794791727091274
+      ],
+      "n_rep": 10
+    },
+    "MI-LiteXGB": {
+      "f1_macro": [
+        89.34039392860761,
+        0.2567396386151147
+      ],
+      "tfp": [
+        0.09645650048875856,
+        0.004150532595130152
+      ],
+      "ataque_normal_pct": [
+        11.126864668727322,
+        0.11256724105512232
+      ],
+      "n_rep": 10
+    }
+  },
+  "pruebas_f1": [
+    {
+      "comparacion": "LSTM (MI top-25) → MI-LiteXGB",
+      "reps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "media_d": 40.94543806647867,
+      "t_corr": 9.244194512598929,
+      "gl": 9,
+      "p_corr": 6.8551973698125e-06,
+      "ic95_corr": [
+        30.9256,
+        50.9652
+      ],
+      "p_holm": 2.05655921094375e-05
+    },
+    {
+      "comparacion": "Transformer (MI top-25) → MI-LiteXGB",
+      "reps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "media_d": 23.763234672299312,
+      "t_corr": 15.945020892513725,
+      "gl": 9,
+      "p_corr": 6.628653449319096e-08,
+      "ic95_corr": [
+        20.3919,
+        27.1346
+      ],
+      "p_holm": 2.6514613797276385e-07
+    },
+    {
+      "comparacion": "TCN (MI top-25) → LSTM (MI top-25)",
+      "reps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "media_d": -16.164657221184104,
+      "t_corr": -4.085941684621638,
+      "gl": 9,
+      "p_corr": 0.002733587007206515,
+      "ic95_corr": [
+        -25.1141,
+        -7.2152
+      ],
+      "p_holm": 0.00546717401441303
+    },
+    {
+      "comparacion": "TCN (MI top-25) → Transformer (MI top-25)",
+      "reps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "media_d": 1.017546172995258,
+      "t_corr": 0.3704417100698745,
+      "gl": 9,
+      "p_corr": 0.7196216180750178,
+      "ic95_corr": [
+        -5.1963,
+        7.2313
+      ],
+      "p_holm": 0.7196216180750178
+    }
+  ],
+  "por_clase": {
+    "lstm": {
+      "f1_por_clase": {
+        "Backdoor": 62.29509967363755,
+        "DDoS_HTTP": 43.3642960468163,
+        "DDoS_ICMP": 99.2545362455259,
+        "DDoS_TCP": 80.59343735077405,
+        "DDoS_UDP": 99.13208864210097,
+        "Fingerprinting": 17.401472271188428,
+        "MITM": 76.24324383685234,
+        "Normal": 93.72980509049087,
+        "Password": 16.03141637667213,
+        "Port_Scanning": 0.0,
+        "Ransomware": 36.8334798979457,
+        "SQL_injection": 4.07778091376313,
+        "Uploading": 16.741153542363698,
+        "Vulnerability_scanner": 77.47588191488487,
+        "XSS": 2.750646128918112
+      },
+      "matriz_sumada": [
+        [
+          38338,
+          241,
+          0,
+          1256,
+          4,
+          0,
+          0,
+          30761,
+          165,
+          0,
+          6,
+          0,
+          1309,
+          0,
+          0
+        ],
+        [
+          5509,
+          41617,
+          0,
+          12,
+          2,
+          0,
+          0,
+          94961,
+          17,
+          0,
+          1201,
+          1,
+          53,
+          2257,
+          0
+        ],
+        [
+          0,
+          0,
+          202402,
+          0,
+          1327,
+          74,
+          0,
+          17,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          149207,
+          0,
+          0,
+          0,
+          879,
+          0,
+          0,
+          0,
+          0,
+          92,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          254,
+          0,
+          363614,
+          0,
+          0,
+          832,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1352,
+          421,
+          35,
+          317,
+          0,
+          435,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          235,
+          0,
+          780,
+          55,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2692,
+          1721,
+          8,
+          6,
+          3669,
+          0,
+          0,
+          4083151,
+          4,
+          0,
+          636,
+          0,
+          107,
+          6,
+          0
+        ],
+        [
+          166,
+          29,
+          0,
+          0,
+          3,
+          0,
+          0,
+          128018,
+          13323,
+          0,
+          1,
+          195,
+          410,
+          7654,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          59555,
+          1,
+          0,
+          0,
+          322,
+          0,
+          0,
+          0,
+          0,
+          48,
+          0,
+          0
+        ],
+        [
+          3301,
+          518,
+          0,
+          813,
+          4,
+          0,
+          0,
+          15482,
+          2,
+          0,
+          8045,
+          0,
+          905,
+          0,
+          0
+        ],
+        [
+          51,
+          8,
+          0,
+          0,
+          2,
+          0,
+          0,
+          126070,
+          0,
+          0,
+          1,
+          3639,
+          25,
+          22684,
+          0
+        ],
+        [
+          596,
+          1411,
+          0,
+          8794,
+          4,
+          0,
+          0,
+          79111,
+          751,
+          0,
+          175,
+          3,
+          10620,
+          8946,
+          9
+        ],
+        [
+          108,
+          264,
+          0,
+          24,
+          5,
+          0,
+          0,
+          22955,
+          577,
+          0,
+          38,
+          998,
+          309,
+          124555,
+          247
+        ],
+        [
+          28,
+          78,
+          0,
+          0,
+          2,
+          0,
+          0,
+          37569,
+          319,
+          0,
+          4,
+          61,
+          404,
+          6095,
+          640
+        ]
+      ]
+    },
+    "transformer": {
+      "f1_por_clase": {
+        "Backdoor": 82.99568308657174,
+        "DDoS_HTTP": 49.42158955870687,
+        "DDoS_ICMP": 99.60628392946953,
+        "DDoS_TCP": 87.95992800381656,
+        "DDoS_UDP": 99.45858467436848,
+        "Fingerprinting": 54.176304126421186,
+        "MITM": 97.63778267049967,
+        "Normal": 94.11124303998326,
+        "Password": 28.394611007907912,
+        "Port_Scanning": 66.38301014380357,
+        "Ransomware": 71.73343012024907,
+        "SQL_injection": 23.44041442077563,
+        "Uploading": 30.825302612723487,
+        "Vulnerability_scanner": 87.04488534379186,
+        "XSS": 10.468336105535691
+      },
+      "matriz_sumada": [
+        [
+          55431,
+          420,
+          0,
+          1229,
+          0,
+          0,
+          0,
+          13283,
+          125,
+          0,
+          102,
+          0,
+          1490,
+          0,
+          0
+        ],
+        [
+          1169,
+          48800,
+          0,
+          9,
+          0,
+          0,
+          0,
+          93100,
+          52,
+          0,
+          257,
+          2,
+          62,
+          1973,
+          206
+        ],
+        [
+          0,
+          0,
+          202832,
+          0,
+          329,
+          642,
+          0,
+          17,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          150158,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0,
+          0,
+          0,
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          199,
+          0,
+          363085,
+          0,
+          0,
+          1412,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          417,
+          421,
+          0,
+          1280,
+          0,
+          442,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1021,
+          49,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2075,
+          1451,
+          0,
+          0,
+          2008,
+          7,
+          0,
+          4085617,
+          129,
+          1,
+          677,
+          0,
+          34,
+          1,
+          0
+        ],
+        [
+          320,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          123649,
+          25325,
+          0,
+          11,
+          115,
+          377,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          30085,
+          0,
+          0,
+          0,
+          58,
+          0,
+          29778,
+          0,
+          0,
+          9,
+          0,
+          0
+        ],
+        [
+          215,
+          315,
+          0,
+          789,
+          0,
+          0,
+          0,
+          9589,
+          1,
+          0,
+          17224,
+          0,
+          937,
+          0,
+          0
+        ],
+        [
+          75,
+          24,
+          0,
+          0,
+          0,
+          0,
+          0,
+          126016,
+          109,
+          0,
+          25,
+          20915,
+          0,
+          5316,
+          0
+        ],
+        [
+          567,
+          625,
+          0,
+          8553,
+          0,
+          0,
+          0,
+          77277,
+          1758,
+          0,
+          78,
+          0,
+          21238,
+          324,
+          0
+        ],
+        [
+          121,
+          123,
+          0,
+          0,
+          0,
+          0,
+          0,
+          22471,
+          1008,
+          0,
+          71,
+          3008,
+          201,
+          122783,
+          294
+        ],
+        [
+          37,
+          63,
+          0,
+          0,
+          0,
+          0,
+          0,
+          37559,
+          21,
+          0,
+          8,
+          206,
+          2959,
+          1742,
+          2605
+        ]
+      ]
+    }
+  },
+  "latencia": {
+    "procesador": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "onnxruntime": "1.32.0",
+    "n": 10000,
+    "modelos": {
+      "Transformer": {
+        "lote1_mediana_us": 189.284,
+        "lote1_p99_us": 233.78183000000004,
+        "lote1024_us_por_paquete": 60.4892509765625,
+        "pico_mb": 5143.40234375,
+        "onnx_kb": 54.9443359375
+      },
+      "TCN": {
+        "lote1_mediana_us": 59.943,
+        "lote1_p99_us": 77.56662000000001,
+        "lote1024_us_por_paquete": 1.8708681640625,
+        "pico_mb": 5143.40234375,
+        "onnx_kb": 28.9306640625
+      },
+      "MI-LiteRF": {
+        "lote1_mediana_us": 14.9645,
+        "lote1_p99_us": 30.12802,
+        "lote1024_us_por_paquete": 2.8459306640625,
+        "pico_mb": 5143.40234375,
+        "onnx_kb": 5287.3525390625
+      },
+      "MI-LiteXGB": {
+        "lote1_mediana_us": 36.712,
+        "lote1_p99_us": 52.82449000000001,
+        "lote1024_us_por_paquete": 19.931052734375,
+        "pico_mb": 5143.40234375,
+        "onnx_kb": 445.1953125
+      }
+    }
+  },
+  "por_rep": [
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 1,
+      "f1_macro": 57.21433152975956,
+      "tfp": 0.1187683284457478,
+      "ataque_normal_pct": 32.41011105545442,
+      "epocas": 50.0,
+      "parametros": 4847.0,
+      "tiempo_min": 9.606666666666666
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 1,
+      "f1_macro": 66.15291324222144,
+      "tfp": 0.07013685239491692,
+      "ataque_normal_pct": 31.14134219496402,
+      "epocas": 22.0,
+      "parametros": 5551.0,
+      "tiempo_min": 3.265
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 1,
+      "f1_macro": 68.00435053669241,
+      "tfp": 0.13856304985337245,
+      "ataque_normal_pct": 30.143797876629485,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 1,
+      "f1_macro": 39.873124211148244,
+      "tfp": 1.3032746823069403,
+      "ataque_normal_pct": 36.20542204737877,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 1,
+      "f1_macro": 89.46238111669962,
+      "tfp": 0.09946236559139786,
+      "ataque_normal_pct": 11.03896103896104,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 2,
+      "f1_macro": 52.21273288967889,
+      "tfp": 0.24560117302052786,
+      "ataque_normal_pct": 31.58055491075247,
+      "epocas": 50.0,
+      "parametros": 4847.0,
+      "tiempo_min": 9.645000000000001
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 2,
+      "f1_macro": 62.146055698198666,
+      "tfp": 0.124633431085044,
+      "ataque_normal_pct": 30.625160352347557,
+      "epocas": 13.0,
+      "parametros": 5551.0,
+      "tiempo_min": 2.1633333333333336
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 2,
+      "f1_macro": 63.463892844827896,
+      "tfp": 0.13563049853372436,
+      "ataque_normal_pct": 30.9409781187768,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 2,
+      "f1_macro": 35.28835384753677,
+      "tfp": 32.95772238514174,
+      "ataque_normal_pct": 24.925168904472763,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 2,
+      "f1_macro": 89.46381556114284,
+      "tfp": 0.09433040078201368,
+      "ataque_normal_pct": 11.158079925718683,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 3,
+      "f1_macro": 47.76032309888744,
+      "tfp": 0.18792766373411535,
+      "ataque_normal_pct": 33.31113853221097,
+      "epocas": 25.0,
+      "parametros": 4847.0,
+      "tiempo_min": 4.835
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 3,
+      "f1_macro": 69.17563980442853,
+      "tfp": 0.06280547409579668,
+      "ataque_normal_pct": 29.79743680590341,
+      "epocas": 35.0,
+      "parametros": 5551.0,
+      "tiempo_min": 4.8516666666666675
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 3,
+      "f1_macro": 67.92646120904152,
+      "tfp": 0.17375366568914957,
+      "ataque_normal_pct": 30.28979487116834,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 3,
+      "f1_macro": 38.720594531250676,
+      "tfp": 6.682795698924732,
+      "ataque_normal_pct": 33.716142747186964,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 3,
+      "f1_macro": 89.70341157099325,
+      "tfp": 0.09579667644183773,
+      "ataque_normal_pct": 10.857533811437857,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 4,
+      "f1_macro": 36.83130186830702,
+      "tfp": 0.2328934506353861,
+      "ataque_normal_pct": 34.08082980049114,
+      "epocas": 36.0,
+      "parametros": 4847.0,
+      "tiempo_min": 6.8966666666666665
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 4,
+      "f1_macro": 65.57249156232042,
+      "tfp": 0.08822091886608016,
+      "ataque_normal_pct": 30.792537659894197,
+      "epocas": 29.0,
+      "parametros": 5551.0,
+      "tiempo_min": 3.985
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 4,
+      "f1_macro": 54.46631906136511,
+      "tfp": 13.030303030303031,
+      "ataque_normal_pct": 26.229978864033427,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 4,
+      "f1_macro": 35.1163798000465,
+      "tfp": 0.00879765395894428,
+      "ataque_normal_pct": 39.279911057897884,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 4,
+      "f1_macro": 89.34348950589538,
+      "tfp": 0.0926197458455523,
+      "ataque_normal_pct": 11.140364809226522,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 5,
+      "f1_macro": 41.6946695593902,
+      "tfp": 0.2446236559139785,
+      "ataque_normal_pct": 32.97210785451613,
+      "epocas": 50.0,
+      "parametros": 4847.0,
+      "tiempo_min": 9.631666666666666
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 5,
+      "f1_macro": 67.7966380684219,
+      "tfp": 0.12952101661779084,
+      "ataque_normal_pct": 30.236038655605917,
+      "epocas": 29.0,
+      "parametros": 5551.0,
+      "tiempo_min": 4.118333333333333
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 5,
+      "f1_macro": 67.71638023993938,
+      "tfp": 0.13807429130009774,
+      "ataque_normal_pct": 29.945877264786013,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 5,
+      "f1_macro": 34.23197259143525,
+      "tfp": 30.82111436950147,
+      "ataque_normal_pct": 27.920245323820115,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 5,
+      "f1_macro": 89.43554424036265,
+      "tfp": 0.09237536656891496,
+      "ataque_normal_pct": 11.245433776007625,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 6,
+      "f1_macro": 49.65097816180493,
+      "tfp": 0.09579667644183773,
+      "ataque_normal_pct": 33.35573175648434,
+      "epocas": 49.0,
+      "parametros": 4847.0,
+      "tiempo_min": 9.353333333333333
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 6,
+      "f1_macro": 62.36607561340131,
+      "tfp": 0.16348973607038123,
+      "ataque_normal_pct": 32.970275256258326,
+      "epocas": 17.0,
+      "parametros": 5551.0,
+      "tiempo_min": 2.6633333333333336
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 6,
+      "f1_macro": 62.64852184421129,
+      "tfp": 8.10752688172043,
+      "ataque_normal_pct": 27.324650890031887,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 6,
+      "f1_macro": 32.96765812646299,
+      "tfp": 45.809872922776144,
+      "ataque_normal_pct": 15.213619870252042,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 6,
+      "f1_macro": 88.8126886332384,
+      "tfp": 0.10606060606060608,
+      "ataque_normal_pct": 11.109210638843752,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 7,
+      "f1_macro": 52.42193317180391,
+      "tfp": 0.10141739980449659,
+      "ataque_normal_pct": 33.63367582558551,
+      "epocas": 50.0,
+      "parametros": 4847.0,
+      "tiempo_min": 9.629999999999999
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 7,
+      "f1_macro": 64.53761197688499,
+      "tfp": 0.1835288367546432,
+      "ataque_normal_pct": 31.642863251518,
+      "epocas": 16.0,
+      "parametros": 5551.0,
+      "tiempo_min": 2.496666666666667
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 7,
+      "f1_macro": 62.38341430004768,
+      "tfp": 3.4562561094819158,
+      "ataque_normal_pct": 28.21285017898376,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 7,
+      "f1_macro": 31.492764443434925,
+      "tfp": 17.520527859237536,
+      "ataque_normal_pct": 24.75107206998082,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 7,
+      "f1_macro": 89.20272187921296,
+      "tfp": 0.0979960899315738,
+      "ataque_normal_pct": 11.200229685648312,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 8,
+      "f1_macro": 43.252009575095904,
+      "tfp": 0.489247311827957,
+      "ataque_normal_pct": 33.44064214242954,
+      "epocas": 29.0,
+      "parametros": 4847.0,
+      "tiempo_min": 5.54
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 8,
+      "f1_macro": 64.8101474395106,
+      "tfp": 0.11559139784946236,
+      "ataque_normal_pct": 30.229319128660613,
+      "epocas": 19.0,
+      "parametros": 5551.0,
+      "tiempo_min": 2.8916666666666666
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 8,
+      "f1_macro": 66.23564465410196,
+      "tfp": 0.17546432062561096,
+      "ataque_normal_pct": 30.483439420410257,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 8,
+      "f1_macro": 34.78228835223296,
+      "tfp": 0.011241446725317693,
+      "ataque_normal_pct": 37.703265690095414,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 8,
+      "f1_macro": 89.06494056568955,
+      "tfp": 0.0979960899315738,
+      "ataque_normal_pct": 11.227107793429525,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 9,
+      "f1_macro": 50.29212867019222,
+      "tfp": 0.30840664711632454,
+      "ataque_normal_pct": 31.774810326080317,
+      "epocas": 50.0,
+      "parametros": 4847.0,
+      "tiempo_min": 9.536666666666667
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 9,
+      "f1_macro": 66.31002615279564,
+      "tfp": 0.5845552297165201,
+      "ataque_normal_pct": 30.287962272910534,
+      "epocas": 21.0,
+      "parametros": 5551.0,
+      "tiempo_min": 3.121666666666667
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 9,
+      "f1_macro": 65.1071237957427,
+      "tfp": 0.08455522971652003,
+      "ataque_normal_pct": 32.48524758402463,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 9,
+      "f1_macro": 37.90058486087785,
+      "tfp": 7.401759530791789,
+      "ataque_normal_pct": 31.696008600994492,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 9,
+      "f1_macro": 89.35364070074273,
+      "tfp": 0.09433040078201368,
+      "ataque_normal_pct": 11.113486701445309,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "LSTM (MI top-25)",
+      "rep": 10,
+      "f1_macro": 52.6191500963693,
+      "tfp": 0.1378299120234604,
+      "ataque_normal_pct": 31.76076040610377,
+      "epocas": 50.0,
+      "parametros": 4847.0,
+      "tiempo_min": 9.521666666666667
+    },
+    {
+      "modelo": "Transformer (MI top-25)",
+      "rep": 10,
+      "f1_macro": 66.9039930048995,
+      "tfp": 0.0373900293255132,
+      "ataque_normal_pct": 30.720455461753676,
+      "epocas": 17.0,
+      "parametros": 5551.0,
+      "tiempo_min": 2.615
+    },
+    {
+      "modelo": "TCN (MI top-25)",
+      "rep": 10,
+      "f1_macro": 67.64402234716047,
+      "tfp": 0.12341153470185728,
+      "ataque_normal_pct": 29.912890496145433,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "TCN (Gao's 18)",
+      "rep": 10,
+      "f1_macro": 35.8399591330435,
+      "tfp": 0.012218963831867057,
+      "ataque_normal_pct": 38.984251872304554,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    },
+    {
+      "modelo": "MI-LiteXGB",
+      "rep": 10,
+      "f1_macro": 89.56130551209876,
+      "tfp": 0.09359726295210166,
+      "ataque_normal_pct": 11.178238506554592,
+      "epocas": NaN,
+      "parametros": NaN,
+      "tiempo_min": NaN
+    }
+  ]
+}

@@ -21,6 +21,8 @@ Edge-IIoTset, a reference dataset for IIoT intrusion detection, writes an absent
 * Given the TCN's own 18 inputs, the trees still reach 77.6–79.5%; the TCN on the 25 MI inputs reaches 64.6%; class weighting does not rescue it.
 * Without four capture identifiers the trees keep 81.6–82.3%; without TCP session counters as well they fall to 46–47%.
 * Latency: ONNX Runtime, one CPU thread, Intel Xeon 2.20 GHz. In 1,024-packet batches the TCN is faster per packet.
+* A compact Transformer (5,551 parameters) and an LSTM (4,847) trained on the same 25 MI inputs reach 65.6% and 48.4%, 24 and 41 points below MI-LiteXGB.
+* External validation on CICIoT2023 (5 of its 169 CSV files, 1,032,490 records, 8 classes) with the same procedure and configurations: the trees again lead the TCN by 20–29 points (MI-LiteRF 81.4%), but the FPR rises to 2.5–12%, and choosing rebalancing by macro-F1 alone doubles the FPR of MI-LiteXGB.
 
 ## Repository layout
 
@@ -28,7 +30,7 @@ Edge-IIoTset, a reference dataset for IIoT intrusion detection, writes an absent
 notebooks/        Google Colab notebooks, in execution order (Spanish comments)
 results/          per-repetition records ("fichas") and summaries of every analysis
 edge_benchmark/   ONNX models, 10,000 test packets and a script to measure latency on an edge device
-paper_figures/    scripts that regenerate Figures 2-5 of the article from results/
+paper_figures/    scripts that regenerate Figures 2-7 of the article from results/
 ```
 
 | Notebook | Content |
@@ -39,14 +41,21 @@ paper_figures/    scripts that regenerate Figures 2-5 of the article from result
 | `04_complementary_M4-M7` | M5/M7 per-packet latency and earliness bound, M6 compact variants, M4 without the placeholder |
 | `05_v3_protocols_O_and_C` | S2: rebalancing chosen by CV (protocol O); S3–S5: protocol C with the TCN retrained on identical splits |
 | `06_robustness_S11e` | E1 corrected resampled t-test, E2 information audit, E3 label conflicts, E4 input ablations, E5 fairer TCN, E6 edge package, E7 summary |
+| `07_external_validation_CICIoT2023_S14` | External validation on CICIoT2023: entropy audit, MI ranking, rebalancing chosen by CV, MI-LiteRF and MI-LiteXGB with the Edge-IIoTset configurations, TCN on the same MI inputs, input ablation, ONNX latency and paired tests (`results/s14_external_ciciot2023/`) |
+| `07b_rebalancing_false_positives_S14` | Follow-up on CICIoT2023, with rules fixed before it was run: MI-LiteXGB with each fixed rebalancing cap, the cap chosen by CV under a false-positive constraint, and a prior correction of the class probabilities |
+| `08_lstm_transformer_S14` | Compact LSTM and Transformer baselines on the 25 MI inputs of protocol C (same splits), same-session ONNX latency and corrected paired tests (`results/s14_recurrent_baselines/`) |
+
+`notebooks/executed_html/` keeps HTML exports of notebooks 07, 07b and 08 as they were run in Google Colab (26–27 November 2026), with all their outputs.
 
 ## Data
 
 Edge-IIoTset is **not redistributed** here (Ferrag et al., *Edge-IIoTset*, IEEE Access 10, 40281–40306, 2022). The notebooks download `DNN-EdgeIIoT-dataset.csv` from Kaggle with `kagglehub` when it is not found (Kaggle may ask for your credentials) and read and write inside the Google Drive folder `MyDrive/Articulo_Grupal_EdgeIIoT`, set in the configuration cell.
 
+CICIoT2023 (Neto et al., *Sensors* 23, 5941, 2023) is not redistributed either. Notebook 07 downloads the original CSV files from the Kaggle mirror `madhavmalhotra/unb-cic-iot-dataset` with `kagglehub` (about 2.8 GB) and uses 5 of the 169 files, chosen at regular intervals of the sorted file list.
+
 ## Reproducing the experiments
 
-1. Open the notebooks in Google Colab in the order above. Notebooks 01, 02 and 05, and part E5 of notebook 06, need a GPU for the TCN; everything else runs on a high-RAM CPU session.
+1. Open the notebooks in Google Colab in the order above. Notebooks 01, 02, 05, 07 (part A3) and 08 (part E8), and part E5 of notebook 06, need a GPU for the neural networks; everything else runs on a high-RAM CPU session. Notebook 07b reuses what notebook 07 saved.
 2. Repetitions use seeds `1000 + r`, `r = 1..10`, with a stratified 70/30 split (1,336,769 training and 572,902 test packets).
 3. Each notebook writes one JSON record per repetition and a summary; `REANUDAR = True` reuses what is already saved, so long runs can be split across sessions (the S11e notebook shows how).
 
@@ -58,7 +67,11 @@ python paper_figures/scripts/01_per_class_summary.py
 python paper_figures/scripts/02_figures_2_to_4.py
 python paper_figures/scripts/03_two_by_two_tests.py
 python paper_figures/scripts/04_figure_5_robustness.py
+python paper_figures/scripts/05_figure_4_confusion.py
+python paper_figures/scripts/06_figure_6_scaling.py
 ```
+
+In the current manuscript, `02_figures_2_to_4.py` draws Figures 2, 3 and 5, `05_figure_4_confusion.py` Figure 4, `06_figure_6_scaling.py` Figure 6 and `04_figure_5_robustness.py` Figure 7.
 
 ## Edge benchmark
 
@@ -69,7 +82,13 @@ pip install numpy onnxruntime psutil
 python edge_benchmark/bench_edge.py            # 1 thread, 10,000 packets, 500 warm-up calls
 ```
 
-It writes `resultado_borde.json` with the median, p95 and p99 latency per packet, throughput, memory and the agreement with the expected predictions. `reference_result_colab_epyc.json` is the reference run on an AMD EPYC 7B12 (medians of 13.4, 27.2 and 48.0 µs for MI-LiteRF, MI-LiteXGB and the TCN; 100% agreement).
+It writes `resultado_borde.json` with the median, p95 and p99 latency per packet, throughput, memory and the agreement with the expected predictions. `reference_result_colab_epyc.json` is the reference run on an AMD EPYC 7B12 (medians of 13.4, 27.2 and 48.0 µs for MI-LiteRF, MI-LiteXGB and the TCN; 100% agreement). `reference_result_xeon230.json` is a second run on an Intel Xeon at 2.30 GHz with ONNX Runtime 1.29 (medians of 6.8, 19.3 and 26.2 µs).
+
+To measure peak memory and time per packet as a function of the batch size (Figure 6b–c), each combination in a new process:
+
+```bash
+bash edge_benchmark/run_batch_sweep.sh     # 3 models x 9 batch sizes (1 to 65,536) x 3 runs -> results/s14_batch_sweep/
+```
 
 ## Reading the records
 
@@ -86,6 +105,9 @@ Records and notebooks were written for a Spanish-language course, so keys are in
 | `tamano_kb`, `tamano_onnx_kb`, `memoria_total_onnx_mb` | model size (native, ONNX), process memory with ONNX Runtime |
 | `tcn_u`, `rf_u3`, `xgb_u3` | TCN, MI-LiteRF and MI-LiteXGB under protocol C (`_u` = unified placeholder) |
 | `rf_u1`, `xgb_u1` | pre-specified configurations with rebalancing (T = 2,000) |
+| `resumen`, `por_rep`, `pruebas` | in the S14 records: mean and SD per model, per-repetition values, paired tests (`media_d`, `ic95_corr`, `p_holm`) |
+| `ataques_como_normal_pct`, `E_N_registros` | attack records classified as benign (%), expected attack records before the first alarm (CICIoT2023) |
+| `auditoria`, `im_binaria`, `im_clase`, `pureza` | entropy audit: MI with the normal/attack label and with the class label (bits), one-column purity |
 
 ## Citation and license
 

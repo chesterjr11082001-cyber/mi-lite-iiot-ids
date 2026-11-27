@@ -1,0 +1,35 @@
+{
+  "procesador": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+  "onnxruntime": "1.32.0",
+  "n": 10000,
+  "modelos": {
+    "Transformer": {
+      "lote1_mediana_us": 189.284,
+      "lote1_p99_us": 233.78183000000004,
+      "lote1024_us_por_paquete": 60.4892509765625,
+      "pico_mb": 5143.40234375,
+      "onnx_kb": 54.9443359375
+    },
+    "TCN": {
+      "lote1_mediana_us": 59.943,
+      "lote1_p99_us": 77.56662000000001,
+      "lote1024_us_por_paquete": 1.8708681640625,
+      "pico_mb": 5143.40234375,
+      "onnx_kb": 28.9306640625
+    },
+    "MI-LiteRF": {
+      "lote1_mediana_us": 14.9645,
+      "lote1_p99_us": 30.12802,
+      "lote1024_us_por_paquete": 2.8459306640625,
+      "pico_mb": 5143.40234375,
+      "onnx_kb": 5287.3525390625
+    },
+    "MI-LiteXGB": {
+      "lote1_mediana_us": 36.712,
+      "lote1_p99_us": 52.82449000000001,
+      "lote1024_us_por_paquete": 19.931052734375,
+      "pico_mb": 5143.40234375,
+      "onnx_kb": 445.1953125
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+ "modelo": "xgb_u3",
+ "lote": 4096,
+ "n_llamadas": 15,
+ "paquetes_distintos": 10000,
+ "us_por_paquete_mediana": 10.206860107421875,
+ "us_por_paquete_media": 10.275146240234376,
+ "us_por_lote_mediana": 41807.299,
+ "rss_numpy_mb": 29.07421875,
+ "rss_tras_ort_mb": 44.50390625,
+ "rss_tras_sesion_mb": 59.515625,
+ "rss_tras_datos_mb": 62.53125,
+ "rss_final_mb": 63.67578125,
+ "pico_mb": 63.60546875,
+ "entrada_lote_mb": 0.390625,
+ "ort": "1.29.0"
+}
