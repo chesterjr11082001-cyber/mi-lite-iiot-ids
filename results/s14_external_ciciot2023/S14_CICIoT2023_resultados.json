@@ -1,0 +1,1618 @@
+{
+ "generado": "27/11/2026 01:21",
+ "entorno": {
+  "fecha_hora": "26/11/2026 22:35",
+  "procesador": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+  "nucleos_logicos": 12,
+  "gpu": true,
+  "python": "3.13.16",
+  "numpy": "2.4.6",
+  "pandas": "2.2.3",
+  "scikit_learn": "1.6.1",
+  "imbalanced_learn": "0.14.2",
+  "xgboost": "3.4.1",
+  "scipy": "1.16.3",
+  "tensorflow": "2.21.0",
+  "onnxruntime": "1.32.0",
+  "modo_prueba": false
+ },
+ "tarea": "8clases",
+ "clases": [
+  "Benign",
+  "BruteForce",
+  "DDoS",
+  "DoS",
+  "Mirai",
+  "Recon",
+  "Spoofing",
+  "Web"
+ ],
+ "datos": {
+  "origen": "Kaggle (madhavmalhotra/unb-cic-iot-dataset)",
+  "archivos_validos": 169,
+  "archivos_usados": 5,
+  "archivos": [
+   "part-00000-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+   "part-00042-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+   "part-00084-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+   "part-00126-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv",
+   "part-00168-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv"
+  ],
+  "filas_brutas": 1155288,
+  "filas_finitas": 1155288,
+  "filas_depuradas": 1032490,
+  "duplicados_eliminados": 122798,
+  "columnas_retiradas": [],
+  "etiquetas_sin_categoria": [],
+  "clases_34": {
+   "DDoS-UDP_Flood": 134225,
+   "DDoS-ICMP_Flood": 130613,
+   "DDoS-TCP_Flood": 95967,
+   "DDoS-SYN_Flood": 91327,
+   "DDoS-PSHACK_Flood": 85648,
+   "DDoS-SynonymousIP_Flood": 85178,
+   "DoS-UDP_Flood": 80744,
+   "DDoS-RSTFINFlood": 76628,
+   "DoS-TCP_Flood": 62106,
+   "DoS-SYN_Flood": 49085,
+   "BenignTraffic": 27217,
+   "Mirai-greeth_flood": 23287,
+   "Mirai-udpplain": 22375,
+   "Mirai-greip_flood": 17641,
+   "DDoS-ICMP_Fragmentation": 11202,
+   "MITM-ArpSpoofing": 7574,
+   "DDoS-ACK_Fragmentation": 7298,
+   "DDoS-UDP_Fragmentation": 6979,
+   "DNS_Spoofing": 4513,
+   "Recon-HostDiscovery": 3316,
+   "Recon-OSScan": 2424,
+   "Recon-PortScan": 2067,
+   "DoS-HTTP_Flood": 1842,
+   "VulnerabilityScan": 963,
+   "DDoS-HTTP_Flood": 720,
+   "DDoS-SlowLoris": 551,
+   "DictionaryBruteForce": 332,
+   "SqlInjection": 136,
+   "CommandInjection": 132,
+   "BrowserHijacking": 127,
+   "XSS": 98,
+   "Backdoor_Malware": 92,
+   "Recon-PingSweep": 54,
+   "Uploading_Attack": 29
+  },
+  "clases_8": {
+   "DDoS": 726336,
+   "DoS": 193777,
+   "Mirai": 63303,
+   "Benign": 27217,
+   "Spoofing": 12087,
+   "Recon": 8824,
+   "Web": 614,
+   "BruteForce": 332
+  },
+  "minutos": 3.9
+ },
+ "n_atributos": 46,
+ "configuracion": {
+  "reps": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "test_size": 0.3,
+  "mi_submuestra": 200000,
+  "cv_submuestra": 400000,
+  "k_grid": [
+   5,
+   10,
+   15,
+   20,
+   25,
+   30
+  ],
+  "T_grid": [
+   2000,
+   20000,
+   0
+  ],
+  "rf": {
+   "arboles": 25,
+   "profundidad": 15
+  },
+  "xgb": {
+   "arboles": 50,
+   "profundidad": 4,
+   "lr": 0.1
+  },
+  "tcn": {
+   "lr": 0.001,
+   "epocas": 50,
+   "lote": 128,
+   "dilataciones": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "kernel": 1,
+   "filtros": 26,
+   "dropout": 0.1,
+   "val_split": 0.1
+  }
+ },
+ "eleccion_k": {
+  "k": 25,
+  "tabla": [
+   {
+    "k": 5,
+    "f1_cv": 64.04319878403716,
+    "tamano_kb": 567.583984375
+   },
+   {
+    "k": 10,
+    "f1_cv": 66.64651685238603,
+    "tamano_kb": 576.078125
+   },
+   {
+    "k": 15,
+    "f1_cv": 66.8264778767812,
+    "tamano_kb": 580.8369140625
+   },
+   {
+    "k": 20,
+    "f1_cv": 67.5653366868662,
+    "tamano_kb": 586.7041015625
+   },
+   {
+    "k": 25,
+    "f1_cv": 69.26009766297561,
+    "tamano_kb": 588.5403645833334
+   },
+   {
+    "k": 30,
+    "f1_cv": 69.19262922048529,
+    "tamano_kb": 589.3375651041666
+   }
+  ],
+  "atributos_rep01": [
+   "IAT",
+   "Magnitue",
+   "Tot sum",
+   "Tot size",
+   "AVG",
+   "Max",
+   "Min",
+   "Header_Length",
+   "Protocol Type",
+   "flow_duration",
+   "Covariance",
+   "Radius",
+   "Std",
+   "rst_count",
+   "urg_count",
+   "Variance",
+   "Rate",
+   "Srate",
+   "Duration",
+   "Number",
+   "Weight",
+   "ack_flag_number",
+   "syn_count",
+   "TCP",
+   "HTTPS"
+  ]
+ },
+ "auditoria": {
+  "H_binaria": 0.17579812582883686,
+  "H_clase": 1.3391059122630318,
+  "pct_normal": 2.6360545864850993,
+  "pureza_base": 0.973639454135149,
+  "atributos": [
+   {
+    "atributo": "rst_count",
+    "valores_distintos": 23069,
+    "im_binaria": 0.11828603007801552,
+    "im_clase": 0.21754251662550317,
+    "pureza": 0.9853596645003826,
+    "im_binaria_rel": 0.672851485306407,
+    "im_clase_rel": 0.16245355549051801,
+    "marcador": false
+   },
+   {
+    "atributo": "IAT",
+    "valores_distintos": 29920,
+    "im_binaria": 0.11443308241412975,
+    "im_clase": 1.1506729164606329,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.6509345982763534,
+    "im_clase_rel": 0.859284471768215,
+    "marcador": false
+   },
+   {
+    "atributo": "urg_count",
+    "valores_distintos": 9244,
+    "im_binaria": 0.1139572962629507,
+    "im_clase": 0.20788293602514774,
+    "pureza": 0.9837305930323781,
+    "im_binaria_rel": 0.648228163557918,
+    "im_clase_rel": 0.15524010022017934,
+    "marcador": false
+   },
+   {
+    "atributo": "flow_duration",
+    "valores_distintos": 525551,
+    "im_binaria": 0.09721007971070206,
+    "im_clase": 0.2829313936613582,
+    "pureza": 0.9786913190442522,
+    "im_binaria_rel": 0.5529642551784036,
+    "im_clase_rel": 0.2112838059113758,
+    "marcador": false
+   },
+   {
+    "atributo": "Variance",
+    "valores_distintos": 342,
+    "im_binaria": 0.08664448712686079,
+    "im_clase": 0.1974677396244986,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.49286354287542783,
+    "im_clase_rel": 0.1474623760646285,
+    "marcador": false
+   },
+   {
+    "atributo": "Duration",
+    "valores_distintos": 7132,
+    "im_binaria": 0.08182860060136243,
+    "im_clase": 0.17795855379770886,
+    "pureza": 0.9742631889897239,
+    "im_binaria_rel": 0.4654691295232214,
+    "im_clase_rel": 0.13289356141887726,
+    "marcador": false
+   },
+   {
+    "atributo": "Header_Length",
+    "valores_distintos": 202745,
+    "im_binaria": 0.08028605449722859,
+    "im_clase": 0.42303539695637493,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.45669459852716443,
+    "im_clase_rel": 0.3159088411770681,
+    "marcador": false
+   },
+   {
+    "atributo": "Tot size",
+    "valores_distintos": 37067,
+    "im_binaria": 0.07885336274422405,
+    "im_clase": 0.4942454149803557,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.448544956736333,
+    "im_clase_rel": 0.3690861271347104,
+    "marcador": false
+   },
+   {
+    "atributo": "Magnitue",
+    "valores_distintos": 177061,
+    "im_binaria": 0.07878540931808731,
+    "im_clase": 0.49641018082183397,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.4481584143553129,
+    "im_clase_rel": 0.3707027026584641,
+    "marcador": false
+   },
+   {
+    "atributo": "Std",
+    "valores_distintos": 173553,
+    "im_binaria": 0.0764482013174006,
+    "im_clase": 0.21915534076759258,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.43486357409653625,
+    "im_clase_rel": 0.16365795921043275,
+    "marcador": false
+   },
+   {
+    "atributo": "AVG",
+    "valores_distintos": 182945,
+    "im_binaria": 0.07627891794337227,
+    "im_clase": 0.4895116740726877,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.4339006322379117,
+    "im_clase_rel": 0.36555112600872164,
+    "marcador": false
+   },
+   {
+    "atributo": "Radius",
+    "valores_distintos": 167390,
+    "im_binaria": 0.07625935213213042,
+    "im_clase": 0.21979300779371203,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.4337893351967766,
+    "im_clase_rel": 0.16413414785263045,
+    "marcador": false
+   },
+   {
+    "atributo": "Max",
+    "valores_distintos": 34835,
+    "im_binaria": 0.07436886069950921,
+    "im_clase": 0.4657030337833783,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.42303557190318003,
+    "im_clase_rel": 0.3477716209887835,
+    "marcador": false
+   },
+   {
+    "atributo": "Covariance",
+    "valores_distintos": 168302,
+    "im_binaria": 0.0708815784721315,
+    "im_clase": 0.2206696544289919,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.4031987152192069,
+    "im_clase_rel": 0.16478879856192227,
+    "marcador": false
+   },
+   {
+    "atributo": "Tot sum",
+    "valores_distintos": 97478,
+    "im_binaria": 0.06940023063800238,
+    "im_clase": 0.49255747228712554,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.3947723009605509,
+    "im_clase_rel": 0.3678256273655939,
+    "marcador": false
+   },
+   {
+    "atributo": "HTTPS",
+    "valores_distintos": 2,
+    "im_binaria": 0.05853906506143014,
+    "im_clase": 0.08244506233681648,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.33299026815806787,
+    "im_clase_rel": 0.06156724541488122,
+    "marcador": false
+   },
+   {
+    "atributo": "Min",
+    "valores_distintos": 28970,
+    "im_binaria": 0.05636293290855976,
+    "im_clase": 0.4439339420997608,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.3206116825354365,
+    "im_clase_rel": 0.33151518340288066,
+    "marcador": false
+   },
+   {
+    "atributo": "ack_flag_number",
+    "valores_distintos": 2,
+    "im_binaria": 0.054851052993724725,
+    "im_clase": 0.1039646660893494,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.3120115913359031,
+    "im_clase_rel": 0.07763737366647389,
+    "marcador": false
+   },
+   {
+    "atributo": "Number",
+    "valores_distintos": 96,
+    "im_binaria": 0.05078750536595872,
+    "im_clase": 0.10571661314675307,
+    "pureza": 0.9755319664112969,
+    "im_binaria_rel": 0.2888967395215987,
+    "im_clase_rel": 0.07894566977760296,
+    "marcador": false
+   },
+   {
+    "atributo": "Weight",
+    "valores_distintos": 102,
+    "im_binaria": 0.05066240372558917,
+    "im_clase": 0.10525920540729072,
+    "pureza": 0.975409931331054,
+    "im_binaria_rel": 0.2881851185086913,
+    "im_clase_rel": 0.07860409280801932,
+    "marcador": false
+   },
+   {
+    "atributo": "Protocol Type",
+    "valores_distintos": 2891,
+    "im_binaria": 0.05061205676038094,
+    "im_clase": 0.35073041820105777,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.2878987277125957,
+    "im_clase_rel": 0.2619138747646468,
+    "marcador": false
+   },
+   {
+    "atributo": "Rate",
+    "valores_distintos": 948077,
+    "im_binaria": 0.03286525935304141,
+    "im_clase": 0.18443774384683032,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.18694886079183895,
+    "im_clase_rel": 0.1377320062273031,
+    "marcador": false
+   },
+   {
+    "atributo": "Srate",
+    "valores_distintos": 948077,
+    "im_binaria": 0.03286525935304141,
+    "im_clase": 0.18443774384683032,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.18694886079183895,
+    "im_clase_rel": 0.1377320062273031,
+    "marcador": false
+   },
+   {
+    "atributo": "syn_count",
+    "valores_distintos": 699,
+    "im_binaria": 0.026934961673529045,
+    "im_clase": 0.09342694869161017,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.15321529479645224,
+    "im_clase_rel": 0.06976815488307614,
+    "marcador": false
+   },
+   {
+    "atributo": "syn_flag_number",
+    "valores_distintos": 2,
+    "im_binaria": 0.009494896741876424,
+    "im_clase": 0.038057467747726115,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.0540102273395166,
+    "im_clase_rel": 0.02842005803962931,
+    "marcador": false
+   },
+   {
+    "atributo": "TCP",
+    "valores_distintos": 2,
+    "im_binaria": 0.00753936808180633,
+    "im_clase": 0.08407238940620099,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.042886510002654525,
+    "im_clase_rel": 0.0627824794411685,
+    "marcador": false
+   },
+   {
+    "atributo": "ack_count",
+    "valores_distintos": 250,
+    "im_binaria": 0.005780731059396915,
+    "im_clase": 0.045548476319242415,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.03288277979155042,
+    "im_clase_rel": 0.03401409545139521,
+    "marcador": false
+   },
+   {
+    "atributo": "ICMP",
+    "valores_distintos": 2,
+    "im_binaria": 0.005692438737766814,
+    "im_clase": 0.07365999444347948,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.03238054280117394,
+    "im_clase_rel": 0.05500684730679535,
+    "marcador": false
+   },
+   {
+    "atributo": "UDP",
+    "valores_distintos": 2,
+    "im_binaria": 0.003983882221112345,
+    "im_clase": 0.03675954200548226,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.022661687673457852,
+    "im_clase_rel": 0.027450810028431735,
+    "marcador": false
+   },
+   {
+    "atributo": "fin_count",
+    "valores_distintos": 437,
+    "im_binaria": 0.003683014705053167,
+    "im_clase": 0.039080817275093604,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.020950250110396952,
+    "im_clase_rel": 0.029184261616057458,
+    "marcador": false
+   },
+   {
+    "atributo": "rst_flag_number",
+    "valores_distintos": 2,
+    "im_binaria": 0.003123880184667027,
+    "im_clase": 0.03215657554211404,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.017769701297660846,
+    "im_clase_rel": 0.024013466931656513,
+    "marcador": false
+   },
+   {
+    "atributo": "fin_flag_number",
+    "valores_distintos": 2,
+    "im_binaria": 0.00297000512005563,
+    "im_clase": 0.03920524897361033,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.01689440718467801,
+    "im_clase_rel": 0.029277183092527113,
+    "marcador": false
+   },
+   {
+    "atributo": "psh_flag_number",
+    "valores_distintos": 2,
+    "im_binaria": 0.0015886769092399167,
+    "im_clase": 0.03898180903615156,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.00903693882827117,
+    "im_clase_rel": 0.029110325538234665,
+    "marcador": false
+   },
+   {
+    "atributo": "DNS",
+    "valores_distintos": 2,
+    "im_binaria": 0.0001284973849348947,
+    "im_clase": 0.00045099150967287116,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.0007309371719924035,
+    "im_clase_rel": 0.00033678554141450604,
+    "marcador": false
+   },
+   {
+    "atributo": "HTTP",
+    "valores_distintos": 2,
+    "im_binaria": 4.7432827197213534e-05,
+    "im_clase": 0.004577544392422972,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.0002698141801773005,
+    "im_clase_rel": 0.0034183587351108904,
+    "marcador": false
+   },
+   {
+    "atributo": "IPv",
+    "valores_distintos": 2,
+    "im_binaria": 3.408227228157701e-05,
+    "im_clase": 0.00047456575334203777,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.00019387164749845335,
+    "im_clase_rel": 0.00035439000679195117,
+    "marcador": false
+   },
+   {
+    "atributo": "LLC",
+    "valores_distintos": 2,
+    "im_binaria": 3.408227228157701e-05,
+    "im_clase": 0.00047456575334203777,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.00019387164749845335,
+    "im_clase_rel": 0.00035439000679195117,
+    "marcador": false
+   },
+   {
+    "atributo": "ARP",
+    "valores_distintos": 2,
+    "im_binaria": 5.89107960793922e-06,
+    "im_clase": 0.00024027590288833167,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 3.351048016106258e-05,
+    "im_clase_rel": 0.000179430096371,
+    "marcador": false
+   },
+   {
+    "atributo": "SSH",
+    "valores_distintos": 2,
+    "im_binaria": 1.5677952018289254e-06,
+    "im_clase": 0.00047585521608994874,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 8.918156518661554e-06,
+    "im_clase_rel": 0.000355352934918922,
+    "marcador": false
+   },
+   {
+    "atributo": "ece_flag_number",
+    "valores_distintos": 2,
+    "im_binaria": 1.4931104400095485e-07,
+    "im_clase": 2.4859373891850112e-05,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 8.493323992903614e-07,
+    "im_clase_rel": 1.8564158117888398e-05,
+    "marcador": false
+   },
+   {
+    "atributo": "SMTP",
+    "valores_distintos": 2,
+    "im_binaria": 3.7327706065015676e-08,
+    "im_clase": 6.654360192648312e-06,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 2.1233278733221095e-07,
+    "im_clase_rel": 4.969256077290203e-06,
+    "marcador": false
+   },
+   {
+    "atributo": "cwr_flag_number",
+    "valores_distintos": 2,
+    "im_binaria": 3.7327706065015676e-08,
+    "im_clase": 6.214672074067451e-06,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 2.1233278733221095e-07,
+    "im_clase_rel": 4.6409115344468315e-06,
+    "marcador": false
+   },
+   {
+    "atributo": "Drate",
+    "valores_distintos": 82,
+    "im_binaria": 0.0,
+    "im_clase": 0.0,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.0,
+    "im_clase_rel": 0.0,
+    "marcador": false
+   },
+   {
+    "atributo": "DHCP",
+    "valores_distintos": 1,
+    "im_binaria": 0.0,
+    "im_clase": 0.0,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.0,
+    "im_clase_rel": 0.0,
+    "marcador": false
+   },
+   {
+    "atributo": "Telnet",
+    "valores_distintos": 1,
+    "im_binaria": 0.0,
+    "im_clase": 0.0,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.0,
+    "im_clase_rel": 0.0,
+    "marcador": false
+   },
+   {
+    "atributo": "IRC",
+    "valores_distintos": 1,
+    "im_binaria": 0.0,
+    "im_clase": 0.0,
+    "pureza": 0.973639454135149,
+    "im_binaria_rel": 0.0,
+    "im_clase_rel": 0.0,
+    "marcador": false
+   }
+  ],
+  "marcadores": [],
+  "conflictos_pct": 0.0,
+  "vectores_distintos": 1032490,
+  "oraculo": {
+   "f1_macro": 100.0,
+   "tfp": 0.0,
+   "ataques_como_normal_pct": 0.0,
+   "exactitud": 100.0
+  },
+  "umbrales": {
+   "pureza": 0.999,
+   "im_rel": 0.9
+  },
+  "segundos": 8.5
+ },
+ "resumen": {
+  "MI-LiteRF": {
+   "f1_macro": [
+    81.43189451309539,
+    0.907618875016122
+   ],
+   "exactitud": [
+    99.44541835756277,
+    0.009542943301095955
+   ],
+   "f1_ponderado": [
+    99.41890295836876,
+    0.010133095158878858
+   ],
+   "tfp": [
+    2.5180649112063684,
+    0.19280306535237982
+   ],
+   "ataques_como_normal_pct": [
+    0.32041036931912387,
+    0.011757682178481907
+   ],
+   "E_N_registros": [
+    0.1231615503899552,
+    0.016499348576577796
+   ],
+   "n_rep": 10,
+   "T_elegidos": {
+    "sin balanceo": 10
+   }
+  },
+  "MI-LiteXGB": {
+   "f1_macro": [
+    72.68828547271055,
+    0.6101358550150082
+   ],
+   "exactitud": [
+    98.72182781431297,
+    0.11380319863959192
+   ],
+   "f1_ponderado": [
+    98.92526454467695,
+    0.08882875461325745
+   ],
+   "tfp": [
+    12.072259644825476,
+    0.7710793434305221
+   ],
+   "ataques_como_normal_pct": [
+    0.15899490022614082,
+    0.008933323010993217
+   ],
+   "E_N_registros": [
+    0.03308755533158028,
+    0.004389741874050004
+   ],
+   "n_rep": 10,
+   "T_elegidos": {
+    "20 000": 8,
+    "2 000": 2
+   }
+  },
+  "TCN": {
+   "f1_macro": [
+    52.440265227541886,
+    3.1382506258542175
+   ],
+   "exactitud": [
+    64.05815068426813,
+    13.971567144030029
+   ],
+   "f1_ponderado": [
+    64.35649768749342,
+    12.325582268365697
+   ],
+   "tfp": [
+    5.287201469687692,
+    3.150272774115965
+   ],
+   "ataques_como_normal_pct": [
+    0.8209044306357807,
+    0.09733756938816497
+   ],
+   "E_N_registros": [
+    0.5588078851561528,
+    0.1720874941767039
+   ],
+   "n_rep": 10,
+   "T_elegidos": {
+    "sin balanceo": 10
+   }
+  }
+ },
+ "pruebas": [
+  {
+   "indicador": "f1_macro",
+   "comparacion": "TCN → MI-LiteXGB",
+   "media_d": 20.248020245168657,
+   "t_corr": 8.062829380408516,
+   "gl": 9,
+   "p_corr": 2.0792592688003453e-05,
+   "ic95_corr": [
+    14.5671,
+    25.9289
+   ],
+   "p_holm": 8.317037075201381e-05
+  },
+  {
+   "indicador": "f1_macro",
+   "comparacion": "TCN → MI-LiteRF",
+   "media_d": 28.991629285553493,
+   "t_corr": 12.866260638785628,
+   "gl": 9,
+   "p_corr": 4.243329647658481e-07,
+   "ic95_corr": [
+    23.8943,
+    34.089
+   ],
+   "p_holm": 2.9703307533609366e-06
+  },
+  {
+   "indicador": "f1_macro",
+   "comparacion": "MI-LiteRF → MI-LiteXGB",
+   "media_d": -8.743609040384834,
+   "t_corr": -12.482839940436548,
+   "gl": 9,
+   "p_corr": 5.49854462004693e-07,
+   "ic95_corr": [
+    -10.3281,
+    -7.1591
+   ],
+   "p_holm": 3.299126772028158e-06
+  },
+  {
+   "indicador": "tfp",
+   "comparacion": "TCN → MI-LiteXGB",
+   "media_d": 6.785058175137783,
+   "t_corr": 2.843236928256015,
+   "gl": 9,
+   "p_corr": 0.01930095794758756,
+   "ic95_corr": [
+    1.3867,
+    12.1834
+   ],
+   "p_holm": 0.03860191589517512
+  },
+  {
+   "indicador": "tfp",
+   "comparacion": "TCN → MI-LiteRF",
+   "media_d": -2.7691365584813226,
+   "t_corr": -1.2445542554039606,
+   "gl": 9,
+   "p_corr": 0.24472857626025374,
+   "ic95_corr": [
+    -7.8024,
+    2.2642
+   ],
+   "p_holm": 0.24472857626025374
+  },
+  {
+   "indicador": "tfp",
+   "comparacion": "MI-LiteRF → MI-LiteXGB",
+   "media_d": 9.554194733619104,
+   "t_corr": 17.2222519498721,
+   "gl": 9,
+   "p_corr": 3.380199093671076e-08,
+   "ic95_corr": [
+    8.2992,
+    10.8091
+   ],
+   "p_holm": 3.0421791843039684e-07
+  },
+  {
+   "indicador": "ataques_como_normal_pct",
+   "comparacion": "TCN → MI-LiteXGB",
+   "media_d": -0.66190953040964,
+   "t_corr": -9.108644123698554,
+   "gl": 9,
+   "p_corr": 7.738948831762245e-06,
+   "ic95_corr": [
+    -0.8263,
+    -0.4975
+   ],
+   "p_holm": 3.8694744158811225e-05
+  },
+  {
+   "indicador": "ataques_como_normal_pct",
+   "comparacion": "TCN → MI-LiteRF",
+   "media_d": -0.5004940613166569,
+   "t_corr": -7.295701782975958,
+   "gl": 9,
+   "p_corr": 4.585681226783239e-05,
+   "ic95_corr": [
+    -0.6557,
+    -0.3453
+   ],
+   "p_holm": 0.00013757043680349718
+  },
+  {
+   "indicador": "ataques_como_normal_pct",
+   "comparacion": "MI-LiteRF → MI-LiteXGB",
+   "media_d": -0.16141546909298304,
+   "t_corr": -14.96232941325665,
+   "gl": 9,
+   "p_corr": 1.1530076785536687e-07,
+   "ic95_corr": [
+    -0.1858,
+    -0.137
+   ],
+   "p_holm": 9.22406142842935e-07
+  }
+ ],
+ "ablacion": {
+  "sin_top1": {
+   "excluidos": [
+    "IAT"
+   ],
+   "f1_macro": [
+    59.587524399272674,
+    0.2170863394072374
+   ],
+   "tfp": [
+    5.844458052663809,
+    0.710883793348425
+   ],
+   "delta_vs_xgb": {
+    "media_d": -13.100761073437871,
+    "t_corr": -24.77996733211639,
+    "gl": 9,
+    "p_corr": 1.3617907122038933e-09,
+    "ic95_corr": [
+     -14.2967,
+     -11.9048
+    ]
+   },
+   "reps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  }
+ },
+ "por_clase": {
+  "MI-LiteRF": {
+   "f1_por_clase": {
+    "Benign": 93.14331889446501,
+    "BruteForce": 55.696714862647504,
+    "DDoS": 99.98061225005578,
+    "DoS": 99.9692071673398,
+    "Mirai": 99.98499183065626,
+    "Recon": 82.22584541020737,
+    "Spoofing": 85.01055778159392,
+    "Web": 35.44390790779739
+   },
+   "matriz_sumada": [
+    [
+     79594,
+     1,
+     8,
+     0,
+     1,
+     862,
+     1183,
+     1
+    ],
+    [
+     249,
+     389,
+     0,
+     0,
+     0,
+     196,
+     166,
+     0
+    ],
+    [
+     5,
+     0,
+     2178788,
+     151,
+     10,
+     48,
+     8,
+     0
+    ],
+    [
+     0,
+     0,
+     195,
+     581127,
+     1,
+     1,
+     6,
+     0
+    ],
+    [
+     1,
+     0,
+     28,
+     3,
+     189871,
+     0,
+     7,
+     0
+    ],
+    [
+     3848,
+     0,
+     388,
+     1,
+     4,
+     20590,
+     1639,
+     0
+    ],
+    [
+     5276,
+     0,
+     4,
+     0,
+     2,
+     1439,
+     29535,
+     4
+    ],
+    [
+     284,
+     1,
+     0,
+     0,
+     0,
+     476,
+     681,
+     398
+    ]
+   ]
+  },
+  "MI-LiteXGB": {
+   "f1_por_clase": {
+    "Benign": 90.73922905619665,
+    "BruteForce": 15.950574003855937,
+    "DDoS": 99.69639620617552,
+    "DoS": 99.71829046325487,
+    "Mirai": 99.78834391013586,
+    "Recon": 66.47174540889372,
+    "Spoofing": 83.48112204762873,
+    "Web": 25.66058268554311
+   },
+   "matriz_sumada": [
+    [
+     71793,
+     3665,
+     0,
+     0,
+     0,
+     1113,
+     3103,
+     1976
+    ],
+    [
+     51,
+     771,
+     0,
+     0,
+     0,
+     68,
+     21,
+     89
+    ],
+    [
+     229,
+     84,
+     2166289,
+     1737,
+     175,
+     10027,
+     180,
+     289
+    ],
+    [
+     153,
+     97,
+     450,
+     579805,
+     56,
+     550,
+     86,
+     133
+    ],
+    [
+     1,
+     2,
+     5,
+     14,
+     189338,
+     507,
+     38,
+     5
+    ],
+    [
+     1837,
+     2079,
+     14,
+     0,
+     0,
+     19705,
+     457,
+     2378
+    ],
+    [
+     2472,
+     1858,
+     0,
+     0,
+     0,
+     750,
+     28857,
+     2323
+    ],
+    [
+     52,
+     192,
+     3,
+     0,
+     0,
+     140,
+     132,
+     1321
+    ]
+   ]
+  },
+  "TCN": {
+   "f1_por_clase": {
+    "Benign": 84.16898897322697,
+    "BruteForce": 0.0,
+    "DDoS": 67.73602658937386,
+    "DoS": 37.89478543569588,
+    "Mirai": 98.98766273056114,
+    "Recon": 60.86197776283949,
+    "Spoofing": 66.95928861777335,
+    "Web": 2.913391710864447
+   },
+   "matriz_sumada": [
+    [
+     77333,
+     0,
+     53,
+     23,
+     11,
+     1802,
+     2426,
+     2
+    ],
+    [
+     600,
+     0,
+     0,
+     0,
+     1,
+     296,
+     103,
+     0
+    ],
+    [
+     8,
+     0,
+     1293254,
+     885120,
+     267,
+     347,
+     14,
+     0
+    ],
+    [
+     0,
+     0,
+     188356,
+     390582,
+     2169,
+     215,
+     7,
+     1
+    ],
+    [
+     2,
+     0,
+     903,
+     323,
+     188547,
+     124,
+     10,
+     1
+    ],
+    [
+     9546,
+     0,
+     785,
+     520,
+     113,
+     13854,
+     1626,
+     26
+    ],
+    [
+     13669,
+     0,
+     35,
+     11,
+     23,
+     1913,
+     20581,
+     28
+    ],
+    [
+     932,
+     0,
+     0,
+     0,
+     0,
+     471,
+     406,
+     31
+    ]
+   ]
+  }
+ },
+ "latencia": {
+  "procesador": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+  "n": 10000,
+  "modelos": {
+   "rf": {
+    "mediana_us": 14.989,
+    "p99_us": 25.698930000000022,
+    "media_us": 15.9833034,
+    "pico_mb": 2505.171875,
+    "acuerdo_nativo": 1.0,
+    "onnx_kb": 6507.3212890625
+   },
+   "xgb": {
+    "mediana_us": 26.613,
+    "p99_us": 38.79450000000001,
+    "media_us": 27.4905638,
+    "pico_mb": 2505.171875,
+    "acuerdo_nativo": 1.0,
+    "onnx_kb": 339.337890625
+   },
+   "tcn": {
+    "mediana_us": 61.391,
+    "p99_us": 93.86758000000002,
+    "media_us": 64.5790492,
+    "pico_mb": 3272.08203125,
+    "onnx_kb": 29.6142578125
+   }
+  }
+ },
+ "por_rep": [
+  {
+   "rep": 1,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 82.75967429078128,
+   "exactitud": 99.45665333320419,
+   "f1_ponderado": 99.43327362016802,
+   "tfp": 2.5964482547458667,
+   "falsas_alarmas": 212,
+   "ataques_como_normal_pct": 0.3034000702959726,
+   "E_N_registros": 0.1079715200598118,
+   "T": 0
+  },
+  {
+   "rep": 1,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 72.55283268618288,
+   "exactitud": 98.78707461250633,
+   "f1_ponderado": 98.9857290115179,
+   "tfp": 12.749540722596448,
+   "falsas_alarmas": 1041,
+   "ataques_como_normal_pct": 0.15849752306172118,
+   "E_N_registros": 0.03677653512743256,
+   "T": 20000
+  },
+  {
+   "rep": 1,
+   "modelo": "TCN",
+   "f1_macro": 52.19883609963839,
+   "exactitud": 54.4657413953969,
+   "f1_ponderado": 56.253813496445225,
+   "tfp": 7.005511328842622,
+   "falsas_alarmas": 572,
+   "ataques_como_normal_pct": 0.7245127361712569,
+   "E_N_registros": 0.4265227352695839,
+   "T": 0
+  },
+  {
+   "rep": 2,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 80.75136373985484,
+   "exactitud": 99.44632232112014,
+   "f1_ponderado": 99.41886737846944,
+   "tfp": 2.5597060624617267,
+   "falsas_alarmas": 209,
+   "ataques_como_normal_pct": 0.3203108938862399,
+   "E_N_registros": 0.12783294280876423,
+   "T": 0
+  },
+  {
+   "rep": 2,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 71.75811792535572,
+   "exactitud": 98.58529703273963,
+   "f1_ponderado": 98.84390587297943,
+   "tfp": 12.994488671157377,
+   "falsas_alarmas": 1061,
+   "ataques_como_normal_pct": 0.16081861649567944,
+   "E_N_registros": 0.030716845879527672,
+   "T": 2000
+  },
+  {
+   "rep": 2,
+   "modelo": "TCN",
+   "f1_macro": 57.06685100357951,
+   "exactitud": 75.73180692629792,
+   "f1_ponderado": 77.74307933029529,
+   "tfp": 2.7556644213104717,
+   "falsas_alarmas": 225,
+   "ataques_como_normal_pct": 0.9629221903163981,
+   "E_N_registros": 0.9026727951449389,
+   "T": 0
+  },
+  {
+   "rep": 3,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 82.66450805302355,
+   "exactitud": 99.44244819158861,
+   "f1_ponderado": 99.41749274775026,
+   "tfp": 2.58420085731782,
+   "falsas_alarmas": 211,
+   "ataques_como_normal_pct": 0.3209740634387994,
+   "E_N_registros": 0.12351716094851761,
+   "T": 0
+  },
+  {
+   "rep": 3,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 72.88895463886084,
+   "exactitud": 98.74219927876622,
+   "f1_ponderado": 98.9258118002363,
+   "tfp": 11.757501530924678,
+   "falsas_alarmas": 960,
+   "ataques_como_normal_pct": 0.174745177099429,
+   "E_N_registros": 0.036923488003837886,
+   "T": 20000
+  },
+  {
+   "rep": 3,
+   "modelo": "TCN",
+   "f1_macro": 55.94730885129902,
+   "exactitud": 75.30855827497925,
+   "f1_ponderado": 76.87269129540992,
+   "tfp": 4.56827924066136,
+   "falsas_alarmas": 373,
+   "ataques_como_normal_pct": 0.8080720997937543,
+   "E_N_registros": 0.49355488297864136,
+   "T": 0
+  },
+  {
+   "rep": 4,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 81.14299625168789,
+   "exactitud": 99.46537012465012,
+   "f1_ponderado": 99.43845902550778,
+   "tfp": 2.3025107164727494,
+   "falsas_alarmas": 188,
+   "ataques_como_normal_pct": 0.3130160288080854,
+   "E_N_registros": 0.11111152600511487,
+   "T": 0
+  },
+  {
+   "rep": 4,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 72.65586089840355,
+   "exactitud": 98.76802680897636,
+   "f1_ponderado": 98.96382393731243,
+   "tfp": 12.418860992039193,
+   "falsas_alarmas": 1014,
+   "ataques_como_normal_pct": 0.14788681022076916,
+   "E_N_registros": 0.02934710199654151,
+   "T": 20000
+  },
+  {
+   "rep": 4,
+   "modelo": "TCN",
+   "f1_macro": 53.20297592002802,
+   "exactitud": 55.22571647183023,
+   "f1_ponderado": 57.106861955209084,
+   "tfp": 3.7109614206981014,
+   "falsas_alarmas": 303,
+   "ataques_como_normal_pct": 0.8534992141440801,
+   "E_N_registros": 0.4974074497641134,
+   "T": 0
+  },
+  {
+   "rep": 5,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 82.53087402029092,
+   "exactitud": 99.44664516524777,
+   "f1_ponderado": 99.42203630453528,
+   "tfp": 2.694427434170239,
+   "falsas_alarmas": 220,
+   "ataques_como_normal_pct": 0.3080422571638891,
+   "E_N_registros": 0.10704618237127253,
+   "T": 0
+  },
+  {
+   "rep": 5,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 73.39304694545301,
+   "exactitud": 98.82743012845968,
+   "f1_ponderado": 99.0018391026184,
+   "tfp": 11.92896509491733,
+   "falsas_alarmas": 974,
+   "ataques_como_normal_pct": 0.1495447341021679,
+   "E_N_registros": 0.030208795378315702,
+   "T": 20000
+  },
+  {
+   "rep": 5,
+   "modelo": "TCN",
+   "f1_macro": 49.80771161007674,
+   "exactitud": 80.33846978340388,
+   "f1_ponderado": 72.32174624900364,
+   "tfp": 2.9516227801592163,
+   "falsas_alarmas": 241,
+   "ataques_como_normal_pct": 0.8936209720739302,
+   "E_N_registros": 0.7350774551494778,
+   "T": 0
+  },
+  {
+   "rep": 6,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 81.0915832348266,
+   "exactitud": 99.43695984141895,
+   "f1_ponderado": 99.41020118542227,
+   "tfp": 2.7066748315982854,
+   "falsas_alarmas": 221,
+   "ataques_como_normal_pct": 0.3130160288080854,
+   "E_N_registros": 0.11784781347449803,
+   "T": 0
+  },
+  {
+   "rep": 6,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 71.55648627632294,
+   "exactitud": 98.47327012045315,
+   "f1_ponderado": 98.72078644478664,
+   "tfp": 13.141457440293939,
+   "falsas_alarmas": 1073,
+   "ataques_como_normal_pct": 0.1727556684417505,
+   "E_N_registros": 0.04189723511225396,
+   "T": 2000
+  },
+  {
+   "rep": 6,
+   "modelo": "TCN",
+   "f1_macro": 52.22917362622572,
+   "exactitud": 59.607356971980366,
+   "f1_ponderado": 63.082077411592905,
+   "tfp": 6.478873239436619,
+   "falsas_alarmas": 529,
+   "ataques_como_normal_pct": 0.7185442101982213,
+   "E_N_registros": 0.3595732655307226,
+   "T": 0
+  },
+  {
+   "rep": 7,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 81.21335397930358,
+   "exactitud": 99.44115681507812,
+   "f1_ponderado": 99.41291774701347,
+   "tfp": 2.3270055113288426,
+   "falsas_alarmas": 190,
+   "ataques_como_normal_pct": 0.3398743956867452,
+   "E_N_registros": 0.1573728294453458,
+   "T": 0
+  },
+  {
+   "rep": 7,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 73.1106402436716,
+   "exactitud": 98.78029488582617,
+   "f1_ponderado": 98.97575174388075,
+   "tfp": 11.414574402939376,
+   "falsas_alarmas": 932,
+   "ataques_como_normal_pct": 0.15750276873288194,
+   "E_N_registros": 0.033188660414223595,
+   "T": 20000
+  },
+  {
+   "rep": 7,
+   "modelo": "TCN",
+   "f1_macro": 55.5881792058885,
+   "exactitud": 70.66379981081334,
+   "f1_ponderado": 73.12980424263151,
+   "tfp": 4.102878138395591,
+   "falsas_alarmas": 335,
+   "ataques_como_normal_pct": 0.8704100377343476,
+   "E_N_registros": 0.6065948825586975,
+   "T": 0
+  },
+  {
+   "rep": 8,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 81.0134506506611,
+   "exactitud": 99.43179433537694,
+   "f1_ponderado": 99.4053449101306,
+   "tfp": 2.7556644213104717,
+   "falsas_alarmas": 225,
+   "ataques_como_normal_pct": 0.3213056482150792,
+   "E_N_registros": 0.10708739463472945,
+   "T": 0
+  },
+  {
+   "rep": 8,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 72.69461515007258,
+   "exactitud": 98.6731106354541,
+   "f1_ponderado": 98.88973617620992,
+   "tfp": 11.537048377219842,
+   "falsas_alarmas": 942,
+   "ataques_como_normal_pct": 0.15485009052264392,
+   "E_N_registros": 0.026903330336209254,
+   "T": 20000
+  },
+  {
+   "rep": 8,
+   "modelo": "TCN",
+   "f1_macro": 52.11416375767803,
+   "exactitud": 79.77542962482283,
+   "f1_ponderado": 74.2468380815838,
+   "tfp": 13.349663196570729,
+   "falsas_alarmas": 1090,
+   "ataques_como_normal_pct": 0.6422797116538785,
+   "E_N_registros": 0.35550651554369683,
+   "T": 0
+  },
+  {
+   "rep": 9,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 80.04076962942483,
+   "exactitud": 99.44277103571625,
+   "f1_ponderado": 99.41457186517542,
+   "tfp": 2.4739742804654012,
+   "falsas_alarmas": 202,
+   "ataques_como_normal_pct": 0.3276057589643944,
+   "E_N_registros": 0.13817058076734937,
+   "T": 0
+  },
+  {
+   "rep": 9,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 72.95139845185071,
+   "exactitud": 98.7528531349779,
+   "f1_ponderado": 98.93213785481032,
+   "tfp": 10.679730557256581,
+   "falsas_alarmas": 872,
+   "ataques_como_normal_pct": 0.16081861649567944,
+   "E_N_registros": 0.032979258380291664,
+   "T": 20000
+  },
+  {
+   "rep": 9,
+   "modelo": "TCN",
+   "f1_macro": 47.98722792716145,
+   "exactitud": 45.589142106299654,
+   "f1_ponderado": 50.19694239612528,
+   "tfp": 3.6374770361298223,
+   "falsas_alarmas": 297,
+   "ataques_como_normal_pct": 0.860462494445955,
+   "E_N_registros": 0.6503058823576723,
+   "T": 0
+  },
+  {
+   "rep": 10,
+   "modelo": "MI-LiteRF",
+   "f1_macro": 81.11037128109923,
+   "exactitud": 99.44406241222676,
+   "f1_ponderado": 99.41586479951502,
+   "tfp": 2.180036742192284,
+   "falsas_alarmas": 178,
+   "ataques_como_normal_pct": 0.3365585479239477,
+   "E_N_registros": 0.1336575533841482,
+   "T": 0
+  },
+  {
+   "rep": 10,
+   "modelo": "MI-LiteXGB",
+   "f1_macro": 73.32090151093166,
+   "exactitud": 98.82872150497019,
+   "f1_ponderado": 99.01312350241734,
+   "tfp": 12.100428658909982,
+   "falsas_alarmas": 988,
+   "ataques_como_normal_pct": 0.15252899708868567,
+   "E_N_registros": 0.03193430268716909,
+   "T": 20000
+  },
+  {
+   "rep": 10,
+   "modelo": "TCN",
+   "f1_macro": 48.260224273843534,
+   "exactitud": 43.875485476856916,
+   "f1_ponderado": 42.611122416637585,
+   "tfp": 4.311083894672382,
+   "falsas_alarmas": 352,
+   "ataques_como_normal_pct": 0.8747206398259844,
+   "E_N_registros": 0.5608629872639818,
+   "T": 0
+  }
+ ]
+}

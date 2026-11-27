@@ -1,0 +1,17 @@
+{
+ "modelo": "rf_u3",
+ "lote": 4096,
+ "n_llamadas": 90,
+ "paquetes_distintos": 10000,
+ "us_por_paquete_mediana": 1.6284794921875,
+ "us_por_paquete_media": 1.6271380126953126,
+ "us_por_lote_mediana": 6670.252,
+ "rss_numpy_mb": 29.10546875,
+ "rss_tras_ort_mb": 44.46875,
+ "rss_tras_sesion_mb": 118.609375,
+ "rss_tras_datos_mb": 119.7265625,
+ "rss_final_mb": 120.82421875,
+ "pico_mb": 120.65234375,
+ "entrada_lote_mb": 0.390625,
+ "ort": "1.29.0"
+}

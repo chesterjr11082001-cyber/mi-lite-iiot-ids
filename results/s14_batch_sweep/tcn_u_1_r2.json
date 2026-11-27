@@ -1,0 +1,17 @@
+{
+ "modelo": "tcn_u",
+ "lote": 1,
+ "n_llamadas": 20000,
+ "paquetes_distintos": 10000,
+ "us_por_paquete_mediana": 24.126,
+ "us_por_paquete_media": 24.8515747,
+ "us_por_lote_mediana": 24.126,
+ "rss_numpy_mb": 29.0390625,
+ "rss_tras_ort_mb": 44.4609375,
+ "rss_tras_sesion_mb": 53.4921875,
+ "rss_tras_datos_mb": 60.26171875,
+ "rss_final_mb": 62.6484375,
+ "pico_mb": 62.4765625,
+ "entrada_lote_mb": 6.866455078125e-05,
+ "ort": "1.29.0"
+}
