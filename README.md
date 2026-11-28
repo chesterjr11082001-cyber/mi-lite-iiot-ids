@@ -29,7 +29,7 @@ Edge-IIoTset, a reference dataset for IIoT intrusion detection, writes an absent
 ```
 notebooks/        Google Colab notebooks, in execution order (Spanish comments)
 results/          per-repetition records ("fichas") and summaries of every analysis
-edge_benchmark/   ONNX models, 10,000 test packets and a script to measure latency on an edge device
+edge_benchmark/   ONNX models, 10,000 test packets and scripts to measure latency, memory and energy on edge devices
 paper_figures/    scripts that regenerate Figures 2-7 of the article from results/
 ```
 
@@ -89,6 +89,17 @@ To measure peak memory and time per packet as a function of the batch size (Figu
 ```bash
 bash edge_benchmark/run_batch_sweep.sh     # 3 models x 9 batch sizes (1 to 65,536) x 3 runs -> results/s14_batch_sweep/
 ```
+
+### ARM benchmark (Raspberry Pi, Jetson, Apple Silicon)
+
+`arm_benchmark.py` extends the benchmark to the five models of the article (MI-LiteXGB, MI-LiteRF, TCN, and the compact Transformer and LSTM of notebook 08). Each model runs in a new process, with one thread, in three rounds: latency with batch size 1 (median, p95 and p99 over 10,000 packets after 500 warm-up calls), time per packet with batches of 1,024, peak memory of the whole process and ONNX size, plus a description of the device. The same file runs on macOS and Linux (x86 or ARM64):
+
+```bash
+bash edge_benchmark/run_arm_benchmark.sh rpi5 --nucleo 2     # creates .venv-edge once -> results/arm/rpi5_<date>.json
+python3 edge_benchmark/arm_benchmark.py --etiqueta rpi5 --energia rf_u3 --segundos 60 --reposo 30   # with a USB power meter
+```
+
+The LSTM of notebook 08 was exported from a GPU session and its graph (`lstm_gpu.onnx`) keeps the cuDNN operator `CudnnRNNV3`, which ONNX Runtime does not run on CPU. `export_lstm_cpu.py` rebuilds it as `lstm_cpu.onnx` with the standard ONNX LSTM operator and the same trained weights, and checks it against an independent NumPy implementation of the cuDNN weight layout (maximum difference 1.7e-5, identical predicted classes). Step-by-step instructions, in Spanish, are in `edge_benchmark/README_ARM.md`.
 
 ## Reading the records
 
