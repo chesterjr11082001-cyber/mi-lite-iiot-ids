@@ -101,6 +101,10 @@ python3 edge_benchmark/arm_benchmark.py --etiqueta rpi5 --energia rf_u3 --segund
 
 The LSTM of notebook 08 was exported from a GPU session and its graph (`lstm_gpu.onnx`) keeps the cuDNN operator `CudnnRNNV3`, which ONNX Runtime does not run on CPU. `export_lstm_cpu.py` rebuilds it as `lstm_cpu.onnx` with the standard ONNX LSTM operator and the same trained weights, and checks it against an independent NumPy implementation of the cuDNN weight layout (maximum difference 1.7e-5, identical predicted classes). Step-by-step instructions, in Spanish, are in `edge_benchmark/README_ARM.md`.
 
+Two further measurements do not depend on the processor speed. `memcap_sweep.py` runs each model in a Docker container with a hard memory limit and no swap, from 1,024 down to 64 MB, and reports the smallest limit under which it completes and its private (anonymous) memory. `model_complexity.py` counts the comparisons per packet that the tree ensembles actually make on the 10,000 packets and the multiply-accumulate operations of the networks (`results/complexity/model_complexity.json`).
+
+Reference runs on an Apple M5 laptop (ARM64; a complementary reference, not an edge device): `results/arm/macbook-m5_20261128_1123.json` (batch-1 medians of 2.7, 6.7, 18.4, 34.0 and 49.9 µs for MI-LiteRF, MI-LiteXGB, the TCN, the LSTM and the Transformer; 100% agreement for the trees and the TCN) and `results/memcap/memcap_macbook-m5_20261128_1119.json` (Linux aarch64 container: MI-LiteXGB, the TCN and the LSTM complete under 64 MB, MI-LiteRF and the Transformer under 96 MB).
+
 ## Reading the records
 
 Records and notebooks were written for a Spanish-language course, so keys are in Spanish:
