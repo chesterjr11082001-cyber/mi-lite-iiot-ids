@@ -9,6 +9,8 @@ Archivos nuevos en `edge_benchmark/`:
 | `export_lstm_cpu.py` | Reexporta la LSTM de E8 (REP-01) sin `CudnnRNNV3`, con los mismos pesos, usando el operador LSTM estándar de ONNX. |
 | `lstm_gpu.onnx` | LSTM original de E8 (REP-01), exportada en GPU con `CudnnRNNV3`; no corre en CPU, es la entrada de `export_lstm_cpu.py`: `python3 edge_benchmark/export_lstm_cpu.py --gpu edge_benchmark/lstm_gpu.onnx --salida edge_benchmark/lstm_cpu.onnx`. |
 | `lstm_cpu.onnx` (+ `_export.json`) | Resultado de lo anterior: 4,847 parámetros, 19.9 KB. Coincide con una implementación en NumPy del formato cuDNN (dif. máx. 1.7e-5, acuerdo argmax 1.0). |
+| `memcap_sweep.py` | Límite de memoria con Docker: menor RAM con la que corre cada modelo (ver abajo). |
+| `model_complexity.py` | Comparaciones (árboles) y MAC (redes) por paquete, independientes del hardware. |
 | `transformer.onnx` | Transformer de E8 (REP-01), copiado de Drive (`mejoras/S14_recurrentes/transformer/REP-01/`). |
 | `xgb_u3.onnx`, `rf_u3.onnx`, `tcn_u.onnx`, `muestras.npz` | Los mismos del repo (protocolo C, REP-01). |
 
@@ -58,6 +60,32 @@ vcgencmd get_throttled        # debe dar throttled=0x0; si no, hubo bajada de fr
 El script marca la hora de la ventana de reposo (30 s) y de la de carga (60 s, lote 1, 1 hilo). Anota la potencia
 media del medidor en cada ventana y escríbela en `potencia_reposo_w` y `potencia_carga_w` del JSON:
 energía por paquete (µJ) = (P_carga − P_reposo) × µs por inferencia. Repetir con `xgb_u3`, `tcn_u`, `transformer` y `lstm`.
+
+## Sin placa: dos pruebas que sí son válidas
+
+### 1. ¿Cabe en la RAM de una placa pequeña? (`memcap_sweep.py`, necesita Docker)
+
+Corre cada modelo en un contenedor Linux con un límite duro de memoria (sin swap) y 1 CPU, bajando el límite
+(1,024 → 64 MB) hasta que el kernel lo mata. En un Mac con Apple Silicon el contenedor es Linux ARM64, como una Pi.
+
+```bash
+docker --version || { brew install colima docker && colima start --cpu 2 --memory 4; }   # o abre Docker Desktop
+python3 edge_benchmark/memcap_sweep.py --etiqueta macbook-m5
+```
+
+Resultado en `results/memcap/`: para cada modelo, el menor límite con el que corre completo, el RSS pico y la
+memoria privada (RssAnon). El RSS incluye ~35 MB de bibliotecas compartidas que el kernel puede descartar y releer;
+la memoria privada es la que sí debe quedar en RAM. Los tiempos medidos dentro del contenedor no se reportan.
+
+### 2. Costo por paquete independiente del hardware (`model_complexity.py`)
+
+```bash
+.venv-edge/bin/pip install -q onnx && .venv-edge/bin/python edge_benchmark/model_complexity.py
+```
+
+Árboles: comparaciones realmente hechas por paquete en los 10,000 paquetes (media y máximo), árboles, nodos y
+profundidad; reconstruye la predicción y debe coincidir al 100 % con la esperada. Redes: MAC por paquete (MatMul,
+Conv, LSTM) y otras operaciones elementales. Salida: `results/complexity/model_complexity.json`.
 
 ## Notas
 
