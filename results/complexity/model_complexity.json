@@ -1,0 +1,95 @@
+{
+  "script": "edge_benchmark/model_complexity.py",
+  "paquetes": "muestras.npz (10,000; árboles)",
+  "modelos": {
+    "MI-LiteXGB": {
+      "tipo": "arboles",
+      "arboles": 750,
+      "nodos": 14048,
+      "hojas": 7399,
+      "nodos_internos": 6649,
+      "profundidad_max": 4,
+      "comparaciones_media": 2359.3173,
+      "comparaciones_p99": 2591.0,
+      "comparaciones_max": 2647,
+      "valores_hoja": 7399,
+      "post_transform": "SOFTMAX",
+      "acuerdo_reconstruccion": 1.0,
+      "archivo": "xgb_u3.onnx",
+      "onnx_kb": 445.1953125,
+      "entradas": 25
+    },
+    "MI-LiteRF": {
+      "tipo": "arboles",
+      "arboles": 25,
+      "nodos": 44231,
+      "hojas": 22128,
+      "nodos_internos": 22103,
+      "profundidad_max": 15,
+      "comparaciones_media": 273.52,
+      "comparaciones_p99": 375.0,
+      "comparaciones_max": 375,
+      "valores_hoja": 331920,
+      "post_transform": "NONE",
+      "acuerdo_reconstruccion": 1.0,
+      "archivo": "rf_u3.onnx",
+      "onnx_kb": 5287.3525390625,
+      "entradas": 25
+    },
+    "TCN": {
+      "tipo": "red",
+      "parametros": 3915,
+      "mac_por_paquete": 3354,
+      "otras_ops_por_paquete": 1542,
+      "ops_por_tipo": {
+        "Conv": 2964,
+        "Add": 561,
+        "Mul": 312,
+        "Relu": 416,
+        "Neg": 208,
+        "MatMul": 390,
+        "Softmax": 45
+      },
+      "archivo": "tcn_u.onnx",
+      "onnx_kb": 28.9306640625,
+      "entradas": 18
+    },
+    "LSTM": {
+      "tipo": "red",
+      "parametros": 4975,
+      "mac_por_paquete": 106080,
+      "otras_ops_por_paquete": 10460,
+      "ops_por_tipo": {
+        "LSTM": 105600,
+        "MatMul": 480,
+        "Add": 15,
+        "Softmax": 45
+      },
+      "archivo": "lstm_cpu.onnx",
+      "onnx_kb": 19.8671875,
+      "entradas": 25
+    },
+    "Transformer": {
+      "tipo": "red",
+      "parametros": 5551,
+      "mac_por_paquete": 150000,
+      "otras_ops_por_paquete": 34496,
+      "ops_por_tipo": {
+        "Mul": 7952,
+        "Add": 11368,
+        "GlobalAveragePool": 3328,
+        "Sub": 1680,
+        "Sqrt": 105,
+        "Reciprocal": 105,
+        "Neg": 105,
+        "MatMul": 150000,
+        "Softmax": 8157,
+        "Relu": 1664,
+        "ReduceMean": 32
+      },
+      "archivo": "transformer.onnx",
+      "onnx_kb": 54.9443359375,
+      "entradas": 25
+    }
+  }
+}

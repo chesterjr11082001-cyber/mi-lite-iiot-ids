@@ -11,3 +11,4 @@ __pycache__/
 edge_benchmark/resultado_borde.json
 .venv-edge/
 results/arm/.tmp_*/
+results/memcap/.tmp/

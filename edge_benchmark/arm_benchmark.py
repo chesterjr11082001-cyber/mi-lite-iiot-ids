@@ -57,6 +57,17 @@ def rss_mb():
     return float('nan')   # macOS sin psutil: solo queda el pico
 
 
+def memoria_linux_mb():
+    """Linux: RSS privado (anónimo: lo que debe quedarse en RAM) y RSS de archivos (bibliotecas compartidas y el ONNX
+    mapeado, que el kernel puede descartar y releer del disco) del proceso actual. En macOS no existe: None."""
+    try:
+        with open('/proc/self/status') as f:
+            v = {l.split(':')[0]: int(l.split()[1]) / 1024 for l in f if l.startswith(('RssAnon', 'RssFile', 'RssShmem', 'VmHWM'))}
+        return {'rss_anon_mb': v.get('RssAnon'), 'rss_archivos_mb': v.get('RssFile'), 'vm_hwm_mb': v.get('VmHWM')}
+    except OSError:
+        return {'rss_anon_mb': None, 'rss_archivos_mb': None, 'vm_hwm_mb': None}
+
+
 def leer(cmd):
     try:
         return subprocess.run(cmd, capture_output=True, text=True, timeout=5).stdout.strip() or None
@@ -200,7 +211,8 @@ def trabajador(a):
            'lote': B, 'n_llamadas_lote': int(len(tb)), 'lote_us_por_paquete_mediana': float(np.median(tb)),
            'carga_sesion_s': t_carga, 'pico_proceso_mb': pico_mb(), 'aumento_pico_en_inferencia_mb': pico_mb() - p_pre,
            'rss_tras_imports_mb': r_ort, 'rss_inicial_mb': r0, 'huella_sesion_mb': r_ses - r_ort, 'rss_antes_medir_mb': r_pre,
-           'rss_final_mb': rss_mb(), 'nucleo_fijado': nucleo, 'temperatura_final_c': temperatura_c(), **control}
+           'rss_final_mb': rss_mb(), **memoria_linux_mb(), 'nucleo_fijado': nucleo, 'temperatura_final_c': temperatura_c(),
+           **control}
     json.dump(res, open(a.salida_trabajador, 'w'), indent=1)
 
 
