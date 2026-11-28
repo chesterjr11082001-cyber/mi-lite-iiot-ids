@@ -1,0 +1,20 @@
+{
+  "origen": "lstm_gpu.onnx",
+  "salida": "lstm_cpu.onnx",
+  "parametros": 4847,
+  "onnx_kb": 19.8671875,
+  "operadores": [
+    "Add",
+    "LSTM",
+    "MatMul",
+    "Softmax",
+    "Squeeze",
+    "Transpose",
+    "Unsqueeze"
+  ],
+  "dif_max_prob_vs_numpy": 1.7425866184361816e-05,
+  "acuerdo_argmax_vs_numpy": 1.0,
+  "n_verificacion": 10000,
+  "exactitud_muestras": 0.8852,
+  "clases_predichas": 14
+}

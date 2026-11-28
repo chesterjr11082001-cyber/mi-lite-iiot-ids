@@ -9,3 +9,5 @@ __pycache__/
 .DS_Store
 # Local outputs of the edge benchmark
 edge_benchmark/resultado_borde.json
+.venv-edge/
+results/arm/.tmp_*/
